@@ -230,6 +230,22 @@ PrefabInstance:
       propertyPath: _localAvatarPrefab
       value: 
       objectReference: {fileID: 7998784567770696950, guid: b2c91789467fbc145bef3ea130772cb3, type: 3}
+    - target: {fileID: 8695432922342648299, guid: d836dd59c5f860d42a2552d6b5765263, type: 3}
+      propertyPath: _localPlayer.root
+      value: 
+      objectReference: {fileID: 462157598}
+    - target: {fileID: 8695432922342648299, guid: d836dd59c5f860d42a2552d6b5765263, type: 3}
+      propertyPath: _localPlayer.head
+      value: 
+      objectReference: {fileID: 1204810461}
+    - target: {fileID: 8695432922342648299, guid: d836dd59c5f860d42a2552d6b5765263, type: 3}
+      propertyPath: _localPlayer.leftHand
+      value: 
+      objectReference: {fileID: 950313078}
+    - target: {fileID: 8695432922342648299, guid: d836dd59c5f860d42a2552d6b5765263, type: 3}
+      propertyPath: _localPlayer.rightHand
+      value: 
+      objectReference: {fileID: 1408508515}
     - target: {fileID: 8731189516328665179, guid: d836dd59c5f860d42a2552d6b5765263, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1531,7 +1547,7 @@ MonoBehaviour:
   m_System: {fileID: 0}
   avatar: {fileID: 1502573999}
   rotationSpeed: 100
-  hand: 
+  hand: left
   m_MoveUsage: 0
   m_Controllers:
   - {fileID: 950313082}
