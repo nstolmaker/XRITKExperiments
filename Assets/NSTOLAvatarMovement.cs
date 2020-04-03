@@ -151,15 +151,15 @@ namespace UnityEngine.XR.Interaction.Toolkit {
                     var camera = xrRig.transform.Find("Camera Offset").transform.Find("Main Camera");
                     Quaternion headRotationFlat = Quaternion.Euler(0, camera.transform.eulerAngles.y, 0);
                     //ovrCameraRig.transform.Translate((headRotationFlat * Vector3.forward) * speed * Time.deltaTime, Space.World);
-                    Vector3 heightAdjustment = xrRig.rig.transform.up * xrRig.cameraInRigSpaceHeight;
+                    //Vector3 heightAdjustment = xrRig.rig.transform.up * xrRig.cameraInRigSpaceHeight;
                     var move = (headRotationFlat * new Vector3(m_CurrentMovementAmount.x, 0f, m_CurrentMovementAmount.y)) * m_Speed * Time.deltaTime;
-                    Vector3 cameraDestination = xrRig.rigInCameraSpacePos + heightAdjustment + move; //  + move;
+                    Vector3 cameraDestination = xrRig.rigInCameraSpacePos + move; // heightAdjustment + move; //  + move;   // rigInCameraSpacePos doesn't make sense. Should be just xrRig.transform.position i think. make sure all numbers are using same relative or absolute space point
 
-                    xrRig.MoveCameraToWorldLocation(cameraDestination);
+                    //xrRig.MoveCameraToWorldLocation(cameraDestination);
 
 
                     //xrRig.MoveCameraToWorldLocation((headRotationFlat * Vector3.forward) * m_Speed * Time.deltaTime);
-                    //xrRig.transform.Translate((headRotationFlat * new Vector3(m_CurrentMovementAmount.x, 0f, m_CurrentMovementAmount.y))  * m_Speed * Time.deltaTime, Space.World);
+                    xrRig.transform.Translate((headRotationFlat * new Vector3(m_CurrentMovementAmount.x, 0f, m_CurrentMovementAmount.y))  * m_Speed * Time.deltaTime, Space.World);
 
                     m_CurrentMovementAmount = new Vector2();
 
