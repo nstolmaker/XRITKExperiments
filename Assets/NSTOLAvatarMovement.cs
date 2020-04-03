@@ -146,26 +146,19 @@ namespace UnityEngine.XR.Interaction.Toolkit {
 
                 if (BeginLocomotion())
                 {
+                    // the below code works for smooth movement, but doesn't seem to update the avatar position properly.
                     var xrRig = system.xrRig;
-                    print("xrRig:" + xrRig.rigInCameraSpacePos);
                     var camera = xrRig.transform.Find("Camera Offset").transform.Find("Main Camera");
                     Quaternion headRotationFlat = Quaternion.Euler(0, camera.transform.eulerAngles.y, 0);
-                    //ovrCameraRig.transform.Translate((headRotationFlat * Vector3.forward) * speed * Time.deltaTime, Space.World);
-                    //Vector3 heightAdjustment = xrRig.rig.transform.up * xrRig.cameraInRigSpaceHeight;
-                    var move = (headRotationFlat * new Vector3(m_CurrentMovementAmount.x, 0f, m_CurrentMovementAmount.y)) * m_Speed * Time.deltaTime;
-                    Vector3 cameraDestination = xrRig.rigInCameraSpacePos + move; // heightAdjustment + move; //  + move;   // rigInCameraSpacePos doesn't make sense. Should be just xrRig.transform.position i think. make sure all numbers are using same relative or absolute space point
-
-                    //xrRig.MoveCameraToWorldLocation(cameraDestination);
-
-
-                    //xrRig.MoveCameraToWorldLocation((headRotationFlat * Vector3.forward) * m_Speed * Time.deltaTime);
-                    xrRig.transform.Translate((headRotationFlat * new Vector3(m_CurrentMovementAmount.x, 0f, m_CurrentMovementAmount.y))  * m_Speed * Time.deltaTime, Space.World);
+                    var move = (headRotationFlat * (new Vector3(m_CurrentMovementAmount.x, 0f, m_CurrentMovementAmount.y)) * m_Speed * Time.deltaTime);
+                    xrRig.transform.Translate(move, Space.World);
 
                     m_CurrentMovementAmount = new Vector2();
-
                     EndLocomotion();
                 }
             }
+
+            /* everything below this is just history of stuff I've tried and should basically be ignored or deleted as soon as I move on. Just using it for reference for now.
 
                 /*
                 if (BeginLocomotion())
