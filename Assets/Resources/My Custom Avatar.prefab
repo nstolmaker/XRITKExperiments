@@ -251,7 +251,7 @@ MonoBehaviour:
   _components:
   - componentID: 1
     component: {fileID: 7074342061409623115}
-    componentIDHasBeenUsed: 0
+    componentIDHasBeenUsed: 1
   _parentView: {fileID: 2156459277295094270}
   _childViews: []
 --- !u!114 &7074342061409623115
@@ -343,7 +343,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 186ff18955b8edf44bafa504cf179abb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -419,7 +419,7 @@ MonoBehaviour:
   _components:
   - componentID: 1
     component: {fileID: 3815980823106697021}
-    componentIDHasBeenUsed: 0
+    componentIDHasBeenUsed: 1
   _parentView: {fileID: 2156459277295094270}
   _childViews: []
 --- !u!114 &3815980823106697021
@@ -488,7 +488,7 @@ BoxCollider:
   m_GameObject: {fileID: 6194217122710117122}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -499,7 +499,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6194217122710117122}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
