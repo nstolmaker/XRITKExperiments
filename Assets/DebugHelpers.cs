@@ -3,25 +3,25 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 using System.Collections.Generic;
-
+using UnityEngine.UI;
 
 namespace UnityEngine.XR.Interaction.Toolkit
 {
     public class DebugHelpers : LocomotionProvider
     {
-        // Start is called before the first frame update
-        void Start()
-        {
 
+
+        public static void Log(string logStatement)
+        {
+            GameObject.FindGameObjectWithTag("DebugPanel").GetComponent<Text>().text = logStatement;
         }
 
-        // Update is called once per frame
         void Update()
         {
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                Debug.Log("Primary thumbstick pressed");
+                Debug.Log("Escape pressed");
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
             if (Input.GetKeyDown(KeyCode.Tab))
@@ -45,6 +45,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             }
 
         }
+
     }
 
 }

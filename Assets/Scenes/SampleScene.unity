@@ -538,9 +538,10 @@ GameObject:
   - component: {fileID: 950313082}
   - component: {fileID: 950313080}
   - component: {fileID: 950313079}
+  - component: {fileID: 950313081}
   m_Layer: 0
   m_Name: LeftHand Controller
-  m_TagString: Untagged
+  m_TagString: Left Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -737,6 +738,19 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &950313081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950313077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7306dfd152b1c9243922dab139e430aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 0}
 --- !u!114 &950313082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1167,8 +1181,8 @@ GameObject:
   - component: {fileID: 1315271780}
   - component: {fileID: 1315271779}
   m_Layer: 5
-  m_Name: DebugText
-  m_TagString: Untagged
+  m_Name: DebugTextPanel
+  m_TagString: DebugPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1243,7 +1257,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1349681547}
   - component: {fileID: 1349681548}
-  - component: {fileID: 1349681549}
   m_Layer: 0
   m_Name: NSTOLDebug
   m_TagString: Untagged
@@ -1278,20 +1291,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_System: {fileID: 1502574001}
---- !u!114 &1349681549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349681546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e62aaeabac2f59478386496d8853276, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  content: {fileID: 1315271779}
-  controller: {fileID: 950313082}
 --- !u!1 &1408508514
 GameObject:
   m_ObjectHideFlags: 0
@@ -1306,9 +1305,10 @@ GameObject:
   - component: {fileID: 1408508520}
   - component: {fileID: 1408508518}
   - component: {fileID: 1408508517}
+  - component: {fileID: 1408508521}
   m_Layer: 0
   m_Name: RightHand Controller
-  m_TagString: Untagged
+  m_TagString: Right Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1645,6 +1645,19 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &1408508521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408508514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7306dfd152b1c9243922dab139e430aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 0}
 --- !u!1 &1502573997
 GameObject:
   m_ObjectHideFlags: 0
