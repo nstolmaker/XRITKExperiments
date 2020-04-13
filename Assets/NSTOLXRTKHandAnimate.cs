@@ -50,9 +50,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         private void handIsHoldingBall(XRBaseInteractable arg0)
         {
             DebugHelpers.Log("handisHoldingBall called");
-            takeAnimationControl = true;
             anim.SetBool("holdBall", true);
-            //throw new NotImplementedException();
         }
 
         private void handDropBall(XRBaseInteractable arg0)
@@ -65,7 +63,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         // Update is called once per frame
         void Update()
         {
-            //UpdateControllerStatus();
+            UpdateControllerStatus();
         }
 
         private void UpdateControllerStatus()
