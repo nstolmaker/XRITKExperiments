@@ -70,12 +70,15 @@ namespace UnityEngine.XR.Interaction.Toolkit
 
 
             // Grip press
-            if (controller.inputDevice.TryGetFeatureValue(CommonUsages.gripButton, out bool grip))
+            if (controller.inputDevice.TryGetFeatureValue(CommonUsages.grip, out float grip))
             {
-                if (grip)
+                if (grip > 0.1)
                 {
-                    handReducer.finger2 = 2;
+                    handReducer.finger2 = grip;
                     debugOutput += "Grip Pressed: " + grip + "\n";
+                } else
+                {
+                    handReducer.finger2 = 0;
                 }
             }
 
@@ -106,6 +109,9 @@ namespace UnityEngine.XR.Interaction.Toolkit
                 {
                     handReducer.finger1 = 1;
                     debugOutput += "Index (Pointer) Capacitive touch: " + indexTouch + "\n";
+                } else
+                {
+                    handReducer.finger1 = 0;
                 }
             }
 
@@ -114,8 +120,12 @@ namespace UnityEngine.XR.Interaction.Toolkit
             {
                 if (trigger > 0.5)  // TODO: Change hard-coded trigger threshold to a global config value
                 {
-                    handReducer.finger1 = 2;
+                    handReducer.finger1 = trigger;
                     debugOutput += "Index (Pointer/Trigger) depressed: " + trigger + "\n";
+                }
+                else
+                {
+                    handReducer.finger1 = 0;
                 }
             }
 
@@ -127,7 +137,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             {
                 // used internally so we can reuse this object.
                 // NSTOLLog.debugTextObject = debugTextObject;
-                DebugHelpers.Log(handSign + "\nThumbAct: " + handReducer.thumb);
+                DebugHelpers.Log(handSign + "\nThumbAct: " + handReducer.thumb + "\nGrip: " + grip + "\nTrigger: " + trigger);
 
 #if UNITY_EDITOR
                 // Debug.Log(controller.tag.ToString() + debugOutput);
@@ -136,7 +146,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
 
             // Update the animator to reflect the new hand pose.
             anim.SetInteger("ThumbAct", handReducer.thumb);
-
+            anim.SetFloat("Grip", grip);
+            anim.SetFloat("TriggerAct", trigger);
 
         }
 
@@ -150,8 +161,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
     public class NSTOLWholeHandPosition 
     {
         //fingers - they call 'em fingers, but you never see 'em fing.
-        public int finger1;
-        public int finger2;
+        public float finger1;
+        public float finger2;
         public int finger3;
         public int finger4;
         public int thumb;
@@ -181,31 +192,31 @@ namespace UnityEngine.XR.Interaction.Toolkit
         {
 
             //open 
-            if (thumb.Equals(2) && finger1.Equals(2) && finger2.Equals(2))
+            if (thumb.Equals(2) && finger1.Equals(2) && finger2 <= 0.5)
             {
                 return "open";
             }
 
             //relaxed
-            if (thumb.Equals(1) && finger1.Equals(1) && (finger2.Equals(0) || finger2.Equals(1))) // finger2 is allowed to be either touch or open, because we can't tell the difference right now, but it SHOULD be just on touch.
+            if (thumb.Equals(1) && finger1.Equals(1) && finger2 < 0.5) // finger2 is allowed to be either touch or open, because we can't tell the difference right now, but it SHOULD be just on touch.
             {
                 return "relaxed";
             }
 
             //FIST 
-            if (thumb.Equals(2) && finger1.Equals(2) && finger2.Equals(2))  // maybe allow thumb to be at state 4 or 6 as well.
+            if (thumb.Equals(2) && finger1.Equals(2) && finger2 >= 0.5)  // maybe allow thumb to be at state 4 or 6 as well.
             {
                 return "fist";
             }
 
             //fingerguns!
-            if (thumb.Equals(0) && finger1.Equals(0) && (finger2.Equals(1) || finger2.Equals(2)))
+            if (thumb.Equals(0) && finger1.Equals(0) && finger2 >= 0.5)
             {
                 return "fingerguns";
             }
 
             // thumbs up
-            if (thumb.Equals(0) && finger1.Equals(2) && (finger2.Equals(1) || finger2.Equals(2)))
+            if (thumb.Equals(0) && finger1.Equals(2) && finger2 >= 0.5)
             {
                 return "thumbsup";
             }
