@@ -24,7 +24,9 @@ namespace UnityEngine.XR.Interaction.Toolkit
         private Animator anim;  // the animator that we're triggering changes on. It's auto-populated in Start().
 
         private XRRayInteractor interactor = null;
-        private bool takeAnimationControl = false;
+
+        // the interactor has this listener support thing used below. With interactor.onSelectEnter and interactor.onSelectExit. We want to use those. When using those, we dont want the animation stuff we've written here to override it. Hence this stateful bool.
+        private bool takeAnimationControl = true;
 
         // Start is called before the first frame update
         void Start()
@@ -50,6 +52,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         private void handIsHoldingBall(XRBaseInteractable arg0)
         {
             DebugHelpers.Log("handisHoldingBall called");
+            takeAnimationControl = false;
             anim.SetBool("holdBall", true);
         }
 
@@ -57,13 +60,15 @@ namespace UnityEngine.XR.Interaction.Toolkit
         {
             DebugHelpers.Log("handDropBall called");
             anim.SetBool("holdBall", false);
+            takeAnimationControl = true;
         }
 
 
         // Update is called once per frame
         void Update()
         {
-            UpdateControllerStatus();
+            if (takeAnimationControl)
+                UpdateControllerStatus();
         }
 
         private void UpdateControllerStatus()
