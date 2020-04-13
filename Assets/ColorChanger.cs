@@ -6,6 +6,9 @@ public class ColorChanger : MonoBehaviour
     public Material defaultMaterial  = null;
     public Material activeMaterial = null;
 
+    private Animator anim;
+
+
     private MeshRenderer meshRenderer = null;
     private XRGrabInteractable grabInteractable = null;
 
@@ -25,13 +28,22 @@ public class ColorChanger : MonoBehaviour
         grabInteractable.onSelectEnter.RemoveListener(SetSecond);
     }
 
+    /* 
+     * State for default (not holding)
+     */
     private void SetFirst(XRBaseInteractor interactor)
     {
+        // DebugHelpers.Log("Not Holding");
         meshRenderer.material = defaultMaterial;
     }
 
+    /* 
+     * State 2 (for holding )
+     */
     private void SetSecond(XRBaseInteractor intereactor)
     {
+       // DebugHelpers.Log("Holding");
+       
         meshRenderer.material = activeMaterial;
     }
 }

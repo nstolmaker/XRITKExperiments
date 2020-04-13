@@ -21,7 +21,10 @@ namespace UnityEngine.XR.Interaction.Toolkit
         [Tooltip("This should be the left hadn controller of your rig or left hand prefab. We use get input from this game object. Auto-set to this GameObject's XRController, if not set manually. This should work if you have your object hierarchy like mine.")]
         public XRController controller;
 
-        private Animator anim;
+        private Animator anim;  // the animator that we're triggering changes on. It's auto-populated in Start().
+
+        private XRRayInteractor interactor = null;
+        private bool takeAnimationControl = false;
 
         // Start is called before the first frame update
         void Start()
@@ -34,13 +37,35 @@ namespace UnityEngine.XR.Interaction.Toolkit
 
             // animators... ASSEMBLE!
             anim = GetComponentInChildren<Animator>();
+            interactor = controller.GetComponent<XRRayInteractor>();
+            //interactor.onHoverEnter.AddListener(handIsHoldingBall);
+            interactor.onSelectEnter.AddListener(handIsHoldingBall);
+            //nteractor.onHoverExit.AddListener(handDropBall);
+            interactor.onSelectExit.AddListener(handDropBall);
+
+
 
         }
+
+        private void handIsHoldingBall(XRBaseInteractable arg0)
+        {
+            DebugHelpers.Log("handisHoldingBall called");
+            takeAnimationControl = true;
+            anim.SetBool("holdBall", true);
+            //throw new NotImplementedException();
+        }
+
+        private void handDropBall(XRBaseInteractable arg0)
+        {
+            DebugHelpers.Log("handDropBall called");
+            anim.SetBool("holdBall", false);
+        }
+
 
         // Update is called once per frame
         void Update()
         {
-            UpdateControllerStatus();
+            //UpdateControllerStatus();
         }
 
         private void UpdateControllerStatus()
