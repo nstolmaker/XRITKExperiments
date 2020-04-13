@@ -72,6 +72,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             // Grip press
             if (controller.inputDevice.TryGetFeatureValue(CommonUsages.grip, out float grip))
             {
+                grip = Mathf.Round(grip * 100f) / 100f;
                 if (grip > 0.1)
                 {
                     handReducer.finger2 = grip;
@@ -118,6 +119,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             // Index (Pointer/Trigger) depressed 
             if (controller.inputDevice.TryGetFeatureValue(CommonUsages.trigger, out float trigger))
             {
+                trigger = Mathf.Round(trigger * 100f) / 100f;
                 if (trigger > 0.5)  // TODO: Change hard-coded trigger threshold to a global config value
                 {
                     handReducer.finger1 = trigger;
