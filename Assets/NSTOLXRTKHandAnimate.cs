@@ -21,6 +21,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
         [Tooltip("This should be the left hadn controller of your rig or left hand prefab. We use get input from this game object. Auto-set to this GameObject's XRController, if not set manually. This should work if you have your object hierarchy like mine.")]
         public XRController controller;
 
+        private Animator anim;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -29,6 +31,10 @@ namespace UnityEngine.XR.Interaction.Toolkit
             {
                 controller = GetComponent<XRController>();
             }
+
+            // animators... ASSEMBLE!
+            anim = GetComponentInChildren<Animator>();
+
         }
 
         // Update is called once per frame
@@ -115,16 +121,21 @@ namespace UnityEngine.XR.Interaction.Toolkit
 
             String handSign = handReducer.Reduce();
 
+
+
             if (debugOutput.Length > 0)
             {
                 // used internally so we can reuse this object.
                 // NSTOLLog.debugTextObject = debugTextObject;
-                DebugHelpers.Log("THINGS?: " + handSign);
+                DebugHelpers.Log(handSign + "\nThumbAct: " + handReducer.thumb);
 
 #if UNITY_EDITOR
                 // Debug.Log(controller.tag.ToString() + debugOutput);
 #endif
             }
+
+            // Update the animator to reflect the new hand pose.
+            anim.SetInteger("ThumbAct", handReducer.thumb);
 
 
         }
@@ -162,7 +173,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             3: a button touch
             4: a button depressed
             5: b button touch
-            6: b button depressed
+            6: b button depressed 
         </summary>
         */
 

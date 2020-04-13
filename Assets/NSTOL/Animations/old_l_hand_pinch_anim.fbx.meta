@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2e9cd2ec52010e0468afbb635afaf7b7
+guid: 4ecc8e1bc7d44b243940ccd5b0b52140
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -55,7 +55,7 @@ ModelImporter:
     400046: hands:b_l_thumb_ignore
     400048: hands:l_hand_world
     400050: //RootNode
-    7400000: l_hand_squirtgun_hold
+    7400000: Take 001
     9500000: //RootNode
   externalObjects: {}
   materials:
