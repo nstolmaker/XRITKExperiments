@@ -132,7 +132,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             }
 
             // Index (Pointer) Capacitive touch
-            if (controller.inputDevice.TryGetFeatureValue(CommonUsages.triggerButton, out bool indexTouch))  
+            if (controller.inputDevice.TryGetFeatureValue(OculusUsages.indexTouch, out bool indexTouch))  
             {
                 if (indexTouch)
                 {
