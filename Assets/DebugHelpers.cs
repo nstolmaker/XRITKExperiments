@@ -47,6 +47,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
             {
                 if (BeginLocomotion())
                 {
+                    Vector2 m_CurrentMovementAmount = new Vector2(0f, -0.5f);
+
                     // the below code works for smooth movement, but doesn't seem to update the avatar position properly.
                     var xrRig = system.xrRig;
                     var camera = xrRig.transform.Find("Camera Offset").transform.Find("Main Camera");
