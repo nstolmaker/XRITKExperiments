@@ -11,9 +11,16 @@ namespace UnityEngine.XR.Interaction.Toolkit
         private Vector3 originalBlueButtonTransform;
         private Vector3 originalRedButtonTransform;
         public bool buttonDown;
-        // Start is called before the first frame update
+
+
+        private XRGrabInteractable grabInteractable = null;
+
         void Start()
         {
+            grabInteractable = GetComponent<XRGrabInteractable>();
+
+            grabInteractable.onSelectEnter.AddListener(OnButtonSelect);
+
             this.originalBlueButtonTransform = GameObject.Find("BlueButton").transform.localPosition;
             this.originalRedButtonTransform = GameObject.Find("RedButton").transform.localPosition;
         }
@@ -24,33 +31,23 @@ namespace UnityEngine.XR.Interaction.Toolkit
 
         }
 
-        public void OnTrggerStay(Collider other)
+        public void OnButtonSelect(XRBaseInteractor controller)
         {
-            Debug.Log("collided with " + other.name);
+            //Debug.Log("collided with " + other.name);
+            DebugHelpers.Log("Button Push Triggered on " + controller.name);
             //all hands have an VORGrabber object on them. So this way we know it was their hand and not their face or player collider.
-            if (other.GetComponentInParent<OVRGrabber>())
+            ButtonGoesIn();
+            switch (buttonFunction)
             {
-                ButtonGoesIn();
+                case "Reset":
+                    gameObject.GetComponentInParent<HockeyController>().ResetPuck();
+                    break;
+                case "ResetAll":
+                    gameObject.GetComponentInParent<HockeyController>().ResetScore();
+                    break;
+
             }
-        }
-
-        public void OnTriggerExit(Collider other)
-        {
-            if (other.GetComponentInParent<OVRGrabber>())
-            {
-                ButtonGoesOut();
-
-                switch (buttonFunction)
-                {
-                    case "Reset":
-                        gameObject.GetComponentInParent<HockeyController>().ResetPuck();
-                        break;
-                    case "ResetAll":
-                        gameObject.GetComponentInParent<HockeyController>().ResetScore();
-                        break;
-
-                }
-            }
+            ButtonGoesOut();
         }
 
         public void ButtonGoesIn()
