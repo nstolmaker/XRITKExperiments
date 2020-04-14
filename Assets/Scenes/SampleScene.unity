@@ -3684,7 +3684,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_CustomReticle: {fileID: 0}
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 811885393}
   m_AttachEaseInTime: 0.15
   m_MovementType: 1
   m_TrackPosition: 1
@@ -4745,8 +4745,8 @@ GameObject:
   - component: {fileID: 5854491910903434405}
   - component: {fileID: 5854491910903434407}
   - component: {fileID: 5854491910903434404}
-  - component: {fileID: 1998278482}
   - component: {fileID: 1998278485}
+  - component: {fileID: 1998278482}
   m_Layer: 8
   m_Name: HockeyPad1
   m_TagString: Untagged
@@ -5376,20 +5376,6 @@ Transform:
   m_Father: {fileID: 5854491909948929961}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &5854491910203510696
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5854491910203510697}
-  m_Material: {fileID: 13400000, guid: 3aeb7dadc0c69d54d9e5777e9d5631f1, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: 93aed2410a4e64bf78f72fd2ec80a95b, type: 3}
 --- !u!1 &5854491910203510697
 GameObject:
   m_ObjectHideFlags: 0
@@ -5402,7 +5388,8 @@ GameObject:
   - component: {fileID: 5854491910204806057}
   - component: {fileID: 5854491910205772137}
   - component: {fileID: 5854491909910482688}
-  - component: {fileID: 5854491910203510696}
+  - component: {fileID: 5854491910203510699}
+  - component: {fileID: 5854491910203510698}
   - component: {fileID: 1998278487}
   - component: {fileID: 1998278488}
   m_Layer: 8
@@ -5412,6 +5399,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!135 &5854491910203510698
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5854491910203510697}
+  m_Material: {fileID: 13400000, guid: 01571ba68fb2dad46aa03094ab219579, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.0069465144
+  m_Center: {x: -7.4505807e-10, y: -0.0000000029802323, z: 0.005172989}
+--- !u!65 &5854491910203510699
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5854491910203510697}
+  m_Material: {fileID: 13400000, guid: 3aeb7dadc0c69d54d9e5777e9d5631f1, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.013035491, y: 0.014955568, z: 0.014179101}
+  m_Center: {x: -0.000084708634, y: -0.0000000029802323, z: 0.002119501}
 --- !u!33 &5854491910204806057
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -5439,7 +5452,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ffe7469e4fd49bb4382e55675f53e6fb, type: 2}
+  - {fileID: 2100000, guid: b853b9ac12602440ab4fa922109e1f4a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
