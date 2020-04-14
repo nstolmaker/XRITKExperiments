@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace UnityEngine.XR.Interaction.Toolkit
 {
-    public class PoolTableButtons : MonoBehaviour
+    public class PoolTableButtons : XRBaseInteractable
     {
 
         public string buttonFunction = "Reset";
@@ -13,25 +13,32 @@ namespace UnityEngine.XR.Interaction.Toolkit
         public bool buttonDown;
 
 
-        private XRGrabInteractable grabInteractable = null;
-
+        /*
         void Start()
         {
-            grabInteractable = GetComponent<XRGrabInteractable>();
 
-            grabInteractable.onSelectEnter.AddListener(OnButtonSelect);
 
             this.originalBlueButtonTransform = GameObject.Find("BlueButton").transform.localPosition;
             this.originalRedButtonTransform = GameObject.Find("RedButton").transform.localPosition;
         }
-
+        
         // Update is called once per frame
         void Update()
         {
+            //Theres no start, so we just do this here?
+            if (!simpleInteractable)
+            {
+                simpleInteractable = GetComponent<XRSimpleInteractable>();
+                simpleInteractable.onSelectEnter.AddListener(OnButtonSelect);
+                simpleInteractable.onActivate.AddListener(OnButtonSelect);
+            }
 
         }
+        */
 
-        public void OnButtonSelect(XRBaseInteractor controller)
+
+
+        protected override void OnSelectEnter(XRBaseInteractor controller)
         {
             //Debug.Log("collided with " + other.name);
             DebugHelpers.Log("Button Push Triggered on " + controller.name);
