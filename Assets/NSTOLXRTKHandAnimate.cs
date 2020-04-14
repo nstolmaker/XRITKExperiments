@@ -12,7 +12,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// <summary>
     /// XRController MonoBehaviour that handles hand movement/animation
     /// </summary>
-    [DisallowMultipleComponent, AddComponentMenu("NSTOL Hand Animator")]
+    [DisallowMultipleComponent, AddComponentMenu("NSTOL Hand Animator (April)")]
     public class NSTOLXRTKHandAnimate : MonoBehaviour
     {
 

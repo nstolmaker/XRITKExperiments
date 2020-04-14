@@ -2,70 +2,73 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoolTableButtons : MonoBehaviour
+namespace UnityEngine.XR.Interaction.Toolkit
 {
-
-    public string buttonFunction = "Reset";
-    private Vector3 originalBlueButtonTransform;
-    private Vector3 originalRedButtonTransform;
-    public bool buttonDown;
-    // Start is called before the first frame update
-    void Start()
+    public class PoolTableButtons : MonoBehaviour
     {
-        this.originalBlueButtonTransform = GameObject.Find("BlueButton").transform.localPosition;
-        this.originalRedButtonTransform = GameObject.Find("RedButton").transform.localPosition;
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void OnTrggerStay(Collider other)
-    {
-        Debug.Log("collided with " + other.name);
-        //all hands have an VORGrabber object on them. So this way we know it was their hand and not their face or player collider.
-        if (other.GetComponentInParent<OVRGrabber>())
+        public string buttonFunction = "Reset";
+        private Vector3 originalBlueButtonTransform;
+        private Vector3 originalRedButtonTransform;
+        public bool buttonDown;
+        // Start is called before the first frame update
+        void Start()
         {
-            ButtonGoesIn();
+            this.originalBlueButtonTransform = GameObject.Find("BlueButton").transform.localPosition;
+            this.originalRedButtonTransform = GameObject.Find("RedButton").transform.localPosition;
         }
-    }
 
-    public void OnTriggerExit(Collider other)
-    {
-        if (other.GetComponentInParent<OVRGrabber>())
+        // Update is called once per frame
+        void Update()
         {
-            ButtonGoesOut();
 
-            switch (buttonFunction)
+        }
+
+        public void OnTrggerStay(Collider other)
+        {
+            Debug.Log("collided with " + other.name);
+            //all hands have an VORGrabber object on them. So this way we know it was their hand and not their face or player collider.
+            if (other.GetComponentInParent<OVRGrabber>())
             {
-                case "Reset":
-                    gameObject.GetComponentInParent<HockeyController>().ResetPuck();
-                    break;
-                case "ResetAll":
-                    gameObject.GetComponentInParent<HockeyController>().ResetScore();
-                    break;
-
+                ButtonGoesIn();
             }
         }
-    }
 
-    public void ButtonGoesIn()
-    {
-        if (!this.buttonDown)
-        { 
-            this.buttonDown = true;
-            this.transform.Translate(0, -.0014f, 0);
-        }
-    }
-
-    public void ButtonGoesOut()
-    {
-        if (this.buttonDown)
+        public void OnTriggerExit(Collider other)
         {
-            this.buttonDown = false;
-            this.transform.Translate(0, .0014f, 0);
+            if (other.GetComponentInParent<OVRGrabber>())
+            {
+                ButtonGoesOut();
+
+                switch (buttonFunction)
+                {
+                    case "Reset":
+                        gameObject.GetComponentInParent<HockeyController>().ResetPuck();
+                        break;
+                    case "ResetAll":
+                        gameObject.GetComponentInParent<HockeyController>().ResetScore();
+                        break;
+
+                }
+            }
+        }
+
+        public void ButtonGoesIn()
+        {
+            if (!this.buttonDown)
+            {
+                this.buttonDown = true;
+                this.transform.Translate(0, -.0014f, 0);
+            }
+        }
+
+        public void ButtonGoesOut()
+        {
+            if (this.buttonDown)
+            {
+                this.buttonDown = false;
+                this.transform.Translate(0, .0014f, 0);
+            }
         }
     }
 }
