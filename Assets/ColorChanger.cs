@@ -3,8 +3,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class ColorChanger : MonoBehaviour
 {
-    public Material defaultMaterial  = null;
-    public Material activeMaterial = null;
+    public Color defaultColor;
+    public Color activeColor;
 
     private Animator anim;
 
@@ -34,7 +34,7 @@ public class ColorChanger : MonoBehaviour
     private void SetFirst(XRBaseInteractor interactor)
     {
         // DebugHelpers.Log("Not Holding");
-        meshRenderer.material = defaultMaterial;
+        meshRenderer.material.color = defaultColor;
     }
 
     /* 
@@ -44,6 +44,6 @@ public class ColorChanger : MonoBehaviour
     {
        // DebugHelpers.Log("Holding");
        
-        meshRenderer.material = activeMaterial;
+        meshRenderer.material.color = activeColor;
     }
 }

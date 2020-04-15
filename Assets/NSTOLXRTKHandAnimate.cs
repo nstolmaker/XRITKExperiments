@@ -51,14 +51,14 @@ namespace UnityEngine.XR.Interaction.Toolkit
 
         private void handIsHoldingBall(XRBaseInteractable arg0)
         {
-            DebugHelpers.Log("handisHoldingBall called");
+            //DebugHelpers.Log("handisHoldingBall called");
             takeAnimationControl = false;
             anim.SetBool("holdBall", true);
         }
 
         private void handDropBall(XRBaseInteractable arg0)
         {
-            DebugHelpers.Log("handDropBall called");
+            //DebugHelpers.Log("handDropBall called");
             anim.SetBool("holdBall", false);
             takeAnimationControl = true;
         }
