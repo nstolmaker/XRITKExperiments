@@ -229,7 +229,7 @@ PrefabInstance:
     - target: {fileID: 8695432922342648299, guid: d836dd59c5f860d42a2552d6b5765263, type: 3}
       propertyPath: _localAvatarPrefab
       value: 
-      objectReference: {fileID: 7998784567770696950, guid: b2c91789467fbc145bef3ea130772cb3, type: 3}
+      objectReference: {fileID: 2172631665451937425, guid: cbe9b04df79d29544a22c14bf355b647, type: 3}
     - target: {fileID: 8695432922342648299, guid: d836dd59c5f860d42a2552d6b5765263, type: 3}
       propertyPath: _localPlayer.root
       value: 
