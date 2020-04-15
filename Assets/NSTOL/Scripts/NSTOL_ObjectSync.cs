@@ -57,7 +57,7 @@ public class NSTOL_ObjectSync : RealtimeComponent
     private void UpdateObjectPosition()
     {
         //DebugHelpers.Log("Running UpdateObjectPosition in NSTOL_ObjectSync");
-        _transform.position = _model.position;
+        transform.position = _model.position;
     }
 
     public void SetPosition(Vector3 position)
