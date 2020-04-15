@@ -1853,6 +1853,23 @@ Transform:
   m_Father: {fileID: 423964077}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1097640238 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5243464011641407817, guid: 99138c8d59078c34cba5da429778c2ef, type: 3}
+  m_PrefabInstance: {fileID: 528312140}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1097640239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097640238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c87071fedf90db341849c5f55be3c698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1204810458
 GameObject:
   m_ObjectHideFlags: 0
@@ -3681,6 +3698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5de920423673a9499ef2676bc1b4af2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _position: {x: 0, y: 0, z: 0}
 --- !u!114 &1998278485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4880,13 +4898,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 5854491910021963525}
-    characterCount: 0
+    characterCount: 5
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 0
+    spaceCount: 2
+    wordCount: 3
     linkCount: 0
-    lineCount: 0
-    pageCount: 0
+    lineCount: 1
+    pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -5995,13 +6013,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 5854491910347755392}
-    characterCount: 0
+    characterCount: 5
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 0
+    spaceCount: 2
+    wordCount: 3
     linkCount: 0
-    lineCount: 0
-    pageCount: 0
+    lineCount: 1
+    pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -6145,6 +6163,8 @@ GameObject:
   - component: {fileID: 5854491909742223278}
   - component: {fileID: 5854491909742223274}
   - component: {fileID: 1998278484}
+  - component: {fileID: 5854491910873320641}
+  - component: {fileID: 5854491910873320640}
   m_Layer: 0
   m_Name: AirHockeyPuck
   m_TagString: Untagged
@@ -6152,6 +6172,42 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5854491910873320640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5854491910873320639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c87071fedf90db341849c5f55be3c698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5854491910873320641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5854491910873320639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1011e140c5c34458f64fd8ad5095b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _realtime: {fileID: 1763005404}
+  _sceneViewUUID: cf49f7f302b57647b11269197a1cb17a
+  _sceneViewOwnedByCreatingClient: 0
+  _sceneViewPreventOwnershipTakeover: 0
+  _sceneViewDestroyWhenOwnerOrLastClientLeaves: 1
+  _isRootPrefabView: 0
+  _components:
+  - componentID: 1
+    component: {fileID: 5854491910873320640}
+    componentIDHasBeenUsed: 1
+  _parentView: {fileID: 0}
+  _childViews: []
 --- !u!4 &5854491910873747615
 Transform:
   m_ObjectHideFlags: 0

@@ -9,10 +9,6 @@ public class NSTOL_PaddleSync : RealtimeComponent
     private Quaternion _rotation;
     private NSTOL_PaddleSyncModel _model;
 
-    void Start()
-    {
-         
-    }
 
     private NSTOL_PaddleSyncModel model
     {
