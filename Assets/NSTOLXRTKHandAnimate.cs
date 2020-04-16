@@ -2,6 +2,7 @@
 using UnityEngine;
 using Unity.XR.Oculus;
 using UnityEngine.UI;
+using Normal.Realtime;
 
 #if LIH_PRESENT
 using UnityEngine.Experimental.XR.Interaction;
@@ -52,6 +53,13 @@ namespace UnityEngine.XR.Interaction.Toolkit
         private void handIsHoldingBall(XRBaseInteractable arg0)
         {
             //DebugHelpers.Log("handisHoldingBall called");
+            if (arg0)
+            { 
+                if (arg0.GetComponent<RealtimeTransform>())
+                {
+                    arg0.GetComponent<RealtimeTransform>().RequestOwnership();
+                }
+            }
             takeAnimationControl = false;
             anim.SetBool("holdBall", true);
         }
@@ -61,6 +69,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             //DebugHelpers.Log("handDropBall called");
             anim.SetBool("holdBall", false);
             takeAnimationControl = true;
+            //arg0.GetComponent<RealtimeTransform>().ClearOwnership();
         }
 
 

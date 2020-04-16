@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HockeyPaddle : MonoBehaviour
 {
+    /*
     [SerializeField]
     private Vector3 _position;
     private Vector3 _previousPosition;
@@ -34,4 +35,5 @@ public class HockeyPaddle : MonoBehaviour
         _rotation = transform.rotation;
         _position = transform.position;
     }
+    */
 }

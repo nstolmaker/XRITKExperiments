@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Normal.Realtime;
 
 namespace UnityEngine.XR.Interaction.Toolkit
 {
@@ -36,6 +37,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
 
         public void ResetPuck()
         {
+            var rtt = this.puck.GetComponent<RealtimeTransform>(); 
+            rtt.RequestOwnership(); // TODO: Populate this everywehre we modify the puck, and also when we hit the puck
             this.puck.GetComponentInParent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
             this.puck.GetComponentInParent<Transform>().localPosition = dropPuckPos;    //use localPosition, since thats where the numbers I saved came from. Otherwise you have to add the position of it's parent, which you wouldn't do. Just remember about localSpace!
         }

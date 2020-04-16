@@ -13,7 +13,12 @@ namespace UnityEngine.XR.Interaction.Toolkit
 
         public static void Log(string logStatement)
         {
-            GameObject.FindGameObjectWithTag("DebugPanel").GetComponent<Text>().text = logStatement + "\n" + GameObject.FindGameObjectWithTag("DebugPanel").GetComponent<Text>().text;
+            var prevText = GameObject.FindGameObjectWithTag("DebugPanel").GetComponent<Text>().text;
+            if (prevText.Length > 800)
+            {
+                prevText = prevText.Substring(0, 800);
+            }
+            GameObject.FindGameObjectWithTag("DebugPanel").GetComponent<Text>().text = logStatement + "\n" + prevText;
         }
 
         void Update()

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Puck : MonoBehaviour
 {
+    /*
 
     [SerializeField]
     private Vector3 _position;
@@ -37,4 +38,5 @@ public class Puck : MonoBehaviour
     {
 
     }
+    */
 }

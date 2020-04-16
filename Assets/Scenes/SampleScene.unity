@@ -1665,6 +1665,8 @@ GameObject:
   - component: {fileID: 967824008}
   - component: {fileID: 967824007}
   - component: {fileID: 967824006}
+  - component: {fileID: 967824014}
+  - component: {fileID: 967824013}
   m_Layer: 0
   m_Name: InteractableSphereSmall
   m_TagString: Untagged
@@ -1853,6 +1855,46 @@ Transform:
   m_Father: {fileID: 423964077}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &967824013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967824005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9011f3ecfff6bca47b885e91ea7a6049, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _syncPosition: 1
+  _syncRotation: 1
+  _syncScale: 1
+  _extrapolation: 0
+--- !u!114 &967824014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967824005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1011e140c5c34458f64fd8ad5095b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _realtime: {fileID: 1763005404}
+  _sceneViewUUID: 3a19ac597a2aaf4288f330428b7ec947
+  _sceneViewOwnedByCreatingClient: 0
+  _sceneViewPreventOwnershipTakeover: 0
+  _sceneViewDestroyWhenOwnerOrLastClientLeaves: 1
+  _isRootPrefabView: 0
+  _components:
+  - componentID: 1
+    component: {fileID: 967824013}
+    componentIDHasBeenUsed: 1
+  _parentView: {fileID: 0}
+  _childViews: []
 --- !u!1 &1097640238 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5243464011641407817, guid: 99138c8d59078c34cba5da429778c2ef, type: 3}
@@ -1870,6 +1912,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87071fedf90db341849c5f55be3c698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _position: {x: 0, y: 0, z: 0}
+  _rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1204810458
 GameObject:
   m_ObjectHideFlags: 0
@@ -2085,7 +2129,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1315271777}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -521.5}
+  m_LocalPosition: {x: 0, y: 0, z: -567.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2067535162}
@@ -2093,7 +2137,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11.6, y: 6.2}
+  m_AnchoredPosition: {x: -116.9, y: 30.8}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1315271779
@@ -3275,8 +3319,8 @@ GameObject:
   - component: {fileID: 1928701689}
   - component: {fileID: 1928701688}
   - component: {fileID: 1928701687}
-  - component: {fileID: 1928701695}
   - component: {fileID: 1928701694}
+  - component: {fileID: 1928701695}
   - component: {fileID: 1928701696}
   m_Layer: 0
   m_Name: InteractableSphere
@@ -3500,6 +3544,9 @@ MonoBehaviour:
     component: {fileID: 1928701694}
     componentIDHasBeenUsed: 1
   - componentID: 2
+    component: {fileID: 0}
+    componentIDHasBeenUsed: 1
+  - componentID: 3
     component: {fileID: 1928701696}
     componentIDHasBeenUsed: 1
   _parentView: {fileID: 0}
@@ -3513,9 +3560,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1928701686}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15b827b7e3b4dda4096917fa90243cd9, type: 3}
+  m_Script: {fileID: 11500000, guid: 9011f3ecfff6bca47b885e91ea7a6049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _syncPosition: 1
+  _syncRotation: 1
+  _syncScale: 1
+  _extrapolation: 0
 --- !u!1 &1946989180
 GameObject:
   m_ObjectHideFlags: 0
@@ -3686,19 +3737,6 @@ MonoBehaviour:
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 0
   m_RetainTransformParent: 1
---- !u!114 &1998278484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5854491910873320639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5de920423673a9499ef2676bc1b4af2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _position: {x: 0, y: 0, z: 0}
 --- !u!114 &1998278485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3711,8 +3749,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec64e5fa7fab854469d0e402dd0f129b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _position: {x: 0, y: 0, z: 0}
-  playerName: Player1
 --- !u!114 &1998278488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4676,7 +4712,7 @@ MonoBehaviour:
   player2: {fileID: 0}
   goal1: {fileID: 5854491911049959615}
   goal2: {fileID: 5854491910079758856}
-  puck: {fileID: 1998278484}
+  puck: {fileID: 5854491910873320642}
   dropPuckPos: {x: -0.2, y: 0.353, z: 0.22}
   score: {fileID: 5854491910000298732}
   pscore: 0000000000000000
@@ -4983,9 +5019,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5854491910048192360}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2833d425da6c87841896c3f91f1439b3, type: 3}
+  m_Script: {fileID: 11500000, guid: 9011f3ecfff6bca47b885e91ea7a6049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _syncPosition: 1
+  _syncRotation: 1
+  _syncScale: 1
+  _extrapolation: 0
 --- !u!114 &5854491910048192362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5006,6 +5046,9 @@ MonoBehaviour:
   _isRootPrefabView: 0
   _components:
   - componentID: 1
+    component: {fileID: 0}
+    componentIDHasBeenUsed: 1
+  - componentID: 2
     component: {fileID: 5854491910048192361}
     componentIDHasBeenUsed: 1
   _parentView: {fileID: 0}
@@ -6162,9 +6205,9 @@ GameObject:
   - component: {fileID: 5854491910875517567}
   - component: {fileID: 5854491909742223278}
   - component: {fileID: 5854491909742223274}
-  - component: {fileID: 1998278484}
   - component: {fileID: 5854491910873320641}
   - component: {fileID: 5854491910873320640}
+  - component: {fileID: 5854491910873320642}
   m_Layer: 0
   m_Name: AirHockeyPuck
   m_TagString: Untagged
@@ -6181,9 +6224,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5854491910873320639}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c87071fedf90db341849c5f55be3c698, type: 3}
+  m_Script: {fileID: 11500000, guid: 9011f3ecfff6bca47b885e91ea7a6049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _syncPosition: 1
+  _syncRotation: 1
+  _syncScale: 1
+  _extrapolation: 0
 --- !u!114 &5854491910873320641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6198,16 +6245,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _realtime: {fileID: 1763005404}
   _sceneViewUUID: cf49f7f302b57647b11269197a1cb17a
-  _sceneViewOwnedByCreatingClient: 0
+  _sceneViewOwnedByCreatingClient: 1
   _sceneViewPreventOwnershipTakeover: 0
   _sceneViewDestroyWhenOwnerOrLastClientLeaves: 1
   _isRootPrefabView: 0
   _components:
   - componentID: 1
+    component: {fileID: 0}
+    componentIDHasBeenUsed: 1
+  - componentID: 2
     component: {fileID: 5854491910873320640}
     componentIDHasBeenUsed: 1
   _parentView: {fileID: 0}
   _childViews: []
+--- !u!114 &5854491910873320642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5854491910873320639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5de920423673a9499ef2676bc1b4af2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5854491910873747615
 Transform:
   m_ObjectHideFlags: 0
