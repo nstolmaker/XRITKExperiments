@@ -29,6 +29,26 @@ namespace UnityEngine.XR.Interaction.Toolkit
                 Debug.Log("Escape pressed");
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Debug.Log("space pressed");
+                float m_JumpAmount = 0.5f;
+
+                if (BeginLocomotion())
+                {
+                    // the below code works for smooth movement, but doesn't seem to update the avatar position properly.
+                    var xrRig = system.xrRig;
+                    var camera = xrRig.transform.Find("Camera Offset").transform.Find("Main Camera");
+                    Quaternion headRotationFlat = camera.transform.rotation;
+                    var move = (headRotationFlat * (new Vector3(0f, m_JumpAmount, 0f)));
+                    xrRig.transform.Translate(move, Space.World);
+
+                    m_JumpAmount = 0.5f;
+                    EndLocomotion();
+                }
+                //GameObject.Find("RedButton").GetComponentInChildren<PoolTableButtons>().ButtonGoesIn();
+            }
             if (Input.GetKeyDown(KeyCode.W))
             {
                 Debug.Log("w pressed");
