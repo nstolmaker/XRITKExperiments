@@ -52,7 +52,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
 
             if (rtPaddle != null)
             {
-                //rtPaddle.ClearOwnership();
+                rtPaddle.ClearOwnership();
                 DebugHelpers.Log("CLEARING ownership for object:" + paddle.name);
             }
             else
