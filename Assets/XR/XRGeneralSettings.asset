@@ -73,9 +73,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c3631f5e58749a59194e0cf6baf6d5, type: 3}
   m_Name: Standalone Providers
   m_EditorClassIdentifier: 
-  m_RequiresSettingsUpdate: 1
+  m_RequiresSettingsUpdate: 0
   m_AutomaticLoading: 0
   m_AutomaticRunning: 0
   m_Loaders:
-  - {fileID: 11400000, guid: 14f4157b6e39b3846aee5879e3df96cb, type: 2}
   - {fileID: 11400000, guid: cc0c1ef711939f4419dfadfc1e686af6, type: 2}
+  - {fileID: 11400000, guid: 14f4157b6e39b3846aee5879e3df96cb, type: 2}

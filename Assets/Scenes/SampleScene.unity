@@ -4998,10 +4998,11 @@ GameObject:
   - component: {fileID: 5854491910903434405}
   - component: {fileID: 5854491910903434407}
   - component: {fileID: 5854491910903434404}
-  - component: {fileID: 1998278485}
   - component: {fileID: 1998278482}
+  - component: {fileID: 1998278485}
   - component: {fileID: 5854491910048192362}
   - component: {fileID: 5854491910048192361}
+  - component: {fileID: 5854491910048192363}
   m_Layer: 8
   m_Name: HockeyPad1
   m_TagString: Untagged
@@ -5052,6 +5053,18 @@ MonoBehaviour:
     componentIDHasBeenUsed: 1
   _parentView: {fileID: 0}
   _childViews: []
+--- !u!114 &5854491910048192363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5854491910048192360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec64e5fa7fab854469d0e402dd0f129b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5854491910048280735
 Transform:
   m_ObjectHideFlags: 0
@@ -5689,6 +5702,8 @@ GameObject:
   - component: {fileID: 5854491910203510699}
   - component: {fileID: 5854491910203510698}
   - component: {fileID: 1998278488}
+  - component: {fileID: 5854491910203510701}
+  - component: {fileID: 5854491910203510700}
   m_Layer: 8
   m_Name: HockeyPad2
   m_TagString: Untagged
@@ -5722,6 +5737,46 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.013035491, y: 0.014955568, z: 0.014179101}
   m_Center: {x: -0.000084708634, y: -0.0000000029802323, z: 0.002119501}
+--- !u!114 &5854491910203510700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5854491910203510697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9011f3ecfff6bca47b885e91ea7a6049, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _syncPosition: 1
+  _syncRotation: 1
+  _syncScale: 1
+  _extrapolation: 0
+--- !u!114 &5854491910203510701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5854491910203510697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1011e140c5c34458f64fd8ad5095b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _realtime: {fileID: 1763005404}
+  _sceneViewUUID: 927dd70a5cee014ea5366bddee1c9d04
+  _sceneViewOwnedByCreatingClient: 0
+  _sceneViewPreventOwnershipTakeover: 0
+  _sceneViewDestroyWhenOwnerOrLastClientLeaves: 1
+  _isRootPrefabView: 0
+  _components:
+  - componentID: 1
+    component: {fileID: 5854491910203510700}
+    componentIDHasBeenUsed: 1
+  _parentView: {fileID: 0}
+  _childViews: []
 --- !u!33 &5854491910204806057
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -6243,8 +6298,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _realtime: {fileID: 1763005404}
-  _sceneViewUUID: cf49f7f302b57647b11269197a1cb17a
-  _sceneViewOwnedByCreatingClient: 1
+  _sceneViewUUID: 401a86ecf3a9a64da37cc73c3c8ba513
+  _sceneViewOwnedByCreatingClient: 0
   _sceneViewPreventOwnershipTakeover: 0
   _sceneViewDestroyWhenOwnerOrLastClientLeaves: 1
   _isRootPrefabView: 0
