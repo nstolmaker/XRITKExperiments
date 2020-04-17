@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 7839237100009122713}
   - component: {fileID: 6150235842639190047}
   - component: {fileID: 1171885005150063274}
+  - component: {fileID: 1959607807912289334}
   m_Layer: 0
   m_Name: My Custom Avatar 1
   m_TagString: Untagged
@@ -207,6 +208,19 @@ MonoBehaviour:
   _syncRotation: 1
   _syncScale: 1
   _extrapolation: 0
+--- !u!114 &1959607807912289334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2172631665451937425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8602091995bebbc468d88c7b6fda510e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  appendages: []
 --- !u!1 &2698128583777152805
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +234,7 @@ GameObject:
   - component: {fileID: 5031310806451770714}
   m_Layer: 0
   m_Name: Right Hand
-  m_TagString: Untagged
+  m_TagString: Right Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -424,7 +438,7 @@ GameObject:
   - component: {fileID: 1372124875207130668}
   m_Layer: 0
   m_Name: Left Hand
-  m_TagString: Untagged
+  m_TagString: Left Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

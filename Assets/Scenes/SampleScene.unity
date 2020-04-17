@@ -1218,8 +1218,10 @@ GameObject:
   m_Component:
   - component: {fileID: 950313078}
   - component: {fileID: 950313082}
+  - component: {fileID: 950313083}
   - component: {fileID: 950313080}
   - component: {fileID: 950313079}
+  - component: {fileID: 950313081}
   m_Layer: 0
   m_Name: LeftHand Controller
   m_TagString: Left Hand
@@ -1419,6 +1421,19 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &950313081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950313077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7306dfd152b1c9243922dab139e430aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 0}
 --- !u!114 &950313082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1444,6 +1459,19 @@ MonoBehaviour:
   m_AnimateModel: 1
   m_ModelSelectTransition: 
   m_ModelDeSelectTransition: 
+--- !u!135 &950313083
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950313077}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.08
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &957452367
 GameObject:
   m_ObjectHideFlags: 0
@@ -2261,7 +2289,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.08
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1408508517
 MonoBehaviour:
