@@ -6,12 +6,11 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class TVRemoteControl : MonoBehaviour
 {
-    [SerializeField]
     private XRController controller;    // name it "RightHand Controller"
     private XRRayInteractor interactor = null;
 
     private GameObject tv;  // name it "TVScreen"
-    
+
     void Start()
     {
         DebugHelpers.Log("starting tv remote control");
@@ -33,11 +32,50 @@ public class TVRemoteControl : MonoBehaviour
             throw new System.Exception("TV or Controller not found. TVRemoteControl failed to start. Check the TVRemoteControl.cs file and confirm you didn't rename the game objects");
         }
 
+        SetupTV();
+        //        StartCoroutine(GetMovieTexture());
+
     }
-        // Update is called once per frame
-        void Update()
+
+    /*IEnumerator GetMovieTexture()
+    {
+        using (var uwr = UnityWebRequestMultimedia.GetMovieTexture("http://myserver.com/mymovie.ogv"))
+        {
+            yield return uwr.SendWebRequest();
+            if (uwr.isNetworkError || uwr.isHttpError)
+            {
+                Debug.LogError(uwr.error);
+                yield break;
+            }
+
+            MovieTexture movie = DownloadHandlerMovieTexture.GetContent(uwr);
+
+            GetComponent<Renderer>().material.mainTexture = movie;
+            movie.loop = true;
+            movie.Play();
+        }
+    }
+    */
+    // Update is called once per frame
+    void Update()
     {
         CheckForTVCommands();
+    }
+
+    public void SetupTV()
+    {
+        var videoPlayer = tv.AddComponent<UnityEngine.Video.VideoPlayer>();
+        var audioSource = gameObject.AddComponent<AudioSource>();
+
+        //videoPlayer.clip = videoClip;
+        videoPlayer.renderMode = UnityEngine.Video.VideoRenderMode.MaterialOverride;
+        videoPlayer.targetMaterialRenderer = GetComponent<Renderer>();
+        videoPlayer.targetMaterialProperty = "_MainTex";
+        videoPlayer.audioOutputMode = UnityEngine.Video.VideoAudioOutputMode.AudioSource;
+        videoPlayer.SetTargetAudioSource(0, audioSource);
+        videoPlayer.isLooping = true;
+
+        videoPlayer.url = "https://file-examples.com/wp-content/uploads/2017/04/file_example_MP4_1280_10MG.mp4";
     }
 
     public void CheckForTVCommands()
@@ -67,4 +105,6 @@ public class TVRemoteControl : MonoBehaviour
         // make sure VideoMaterial's Rendering Maps are set to the VideoTexture still
         // make sure the VideoMaterial is still assigned to the material of MeshRenderer component
     }
+
+    //
 }
