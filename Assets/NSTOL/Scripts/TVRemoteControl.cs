@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -10,6 +11,9 @@ public class TVRemoteControl : MonoBehaviour
     private XRRayInteractor interactor = null;
 
     private GameObject tv;  // name it "TVScreen"
+
+    public Texture m_MainTexture, m_Normal, m_Albedo;
+    private Renderer m_Renderer;
 
     void Start()
     {
@@ -62,19 +66,33 @@ public class TVRemoteControl : MonoBehaviour
         CheckForTVCommands();
     }
 
-    public void SetupTV()
+    void SetupTV()
     {
-        var videoPlayer = tv.AddComponent<UnityEngine.Video.VideoPlayer>();
+        // first MeshRenderer
+        m_Renderer = tv.AddComponent<MeshRenderer>();
+       //m_Renderer = GetComponent<Renderer>();
+
+        // then make the video texture
+
+        // now make the material
+        Material material = new Material(Shader.Find("Standard"));
+        AssetDatabase.CreateAsset(material, "Assets/VideoMaterialOTF.mat");
+        material.SetTexture("VideoTexture", m_Albedo);
+
+        // asign the new material to our renderer
+        m_Renderer.material = material;
+
+// now make the videoPlayer
+var videoPlayer = tv.AddComponent<UnityEngine.Video.VideoPlayer>();
         var audioSource = gameObject.AddComponent<AudioSource>();
 
         //videoPlayer.clip = videoClip;
         videoPlayer.renderMode = UnityEngine.Video.VideoRenderMode.MaterialOverride;
-        videoPlayer.targetMaterialRenderer = GetComponent<Renderer>();
+        videoPlayer.targetMaterialRenderer = m_Renderer;
         videoPlayer.targetMaterialProperty = "_MainTex";
         videoPlayer.audioOutputMode = UnityEngine.Video.VideoAudioOutputMode.AudioSource;
         videoPlayer.SetTargetAudioSource(0, audioSource);
         videoPlayer.isLooping = true;
-
         videoPlayer.url = "https://file-examples.com/wp-content/uploads/2017/04/file_example_MP4_1280_10MG.mp4";
     }
 
