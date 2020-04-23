@@ -793,6 +793,7 @@ Transform:
   - {fileID: 1928701693}
   - {fileID: 967824012}
   - {fileID: 5854491909948929961}
+  - {fileID: 1693240917}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3330,7 +3331,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1349681547}
-  - {fileID: 1693240917}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3346,6 +3346,9 @@ GameObject:
   - component: {fileID: 1693240921}
   - component: {fileID: 1693240919}
   - component: {fileID: 1693240922}
+  - component: {fileID: 1693240918}
+  - component: {fileID: 1693240923}
+  - component: {fileID: 1693240920}
   m_Layer: 0
   m_Name: TVScreen
   m_TagString: Untagged
@@ -3360,13 +3363,27 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1693240916}
-  m_LocalRotation: {x: 0, y: -0.70710677, z: 0.70710677, w: 0}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: 0.7071068, w: 0}
   m_LocalPosition: {x: -2.09, y: 1, z: 3.71}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.12}
+  m_LocalScale: {x: 0.19999991, y: 0.19999997, z: 0.11999998}
   m_Children: []
-  m_Father: {fileID: 1523592691}
-  m_RootOrder: 1
+  m_Father: {fileID: 423964077}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 270}
+--- !u!114 &1693240918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693240916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93c6beeda1734246ad421babadaf6f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playbackURL: 
+  _previousPlaybackURL: 
 --- !u!64 &1693240919
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3381,6 +3398,30 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1693240920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693240916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1011e140c5c34458f64fd8ad5095b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _realtime: {fileID: 1763005404}
+  _sceneViewUUID: 441283fd1999984cb3ca403dfbec42ed
+  _sceneViewOwnedByCreatingClient: 1
+  _sceneViewPreventOwnershipTakeover: 0
+  _sceneViewDestroyWhenOwnerOrLastClientLeaves: 1
+  _isRootPrefabView: 0
+  _components:
+  - componentID: 1
+    component: {fileID: 1693240923}
+    componentIDHasBeenUsed: 1
+  _parentView: {fileID: 0}
+  _childViews: []
 --- !u!33 &1693240921
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3409,8 +3450,21 @@ MonoBehaviour:
   m_Normal: {fileID: 0}
   m_Albedo: {fileID: 0}
   m_Renderer: {fileID: 0}
-  videoURL: http://mirrors.standaloneinstaller.com/video-sample/Panasonic_HDC_TM_700_P_50i.mp4
+  videoURL: http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4
   tvReady: 0
+--- !u!114 &1693240923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693240916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4119bc449c07693459f7014225e7ece6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tv: {fileID: 0}
 --- !u!114 &1763005404 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8695799287720145661, guid: d836dd59c5f860d42a2552d6b5765263, type: 3}
