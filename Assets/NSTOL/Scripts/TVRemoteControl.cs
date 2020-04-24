@@ -72,21 +72,21 @@ public class TVRemoteControl : MonoBehaviour
         Debug.LogError("CheckDimensions(" + url + ")");
 
         GameObject tempVideo = new GameObject("Temp video for " + url);
-        VideoPlayer videoPlayer = tempVideo.AddComponent<VideoPlayer>();
-        videoPlayer.renderMode = VideoRenderMode.MaterialOverride;
-        videoPlayer.targetTexture = new RenderTexture(1, 1, 0);
-        videoPlayer.source = VideoSource.Url;
-        videoPlayer.url = url;
-        videoPlayer.playOnAwake = true;
+        VideoPlayer tmpvideoPlayer = tempVideo.AddComponent<VideoPlayer>();
+        tmpvideoPlayer.renderMode = VideoRenderMode.MaterialOverride;
+        tmpvideoPlayer.targetTexture = new RenderTexture(1, 1, 0);
+        tmpvideoPlayer.source = VideoSource.Url;
+        tmpvideoPlayer.url = url;
+        tmpvideoPlayer.playOnAwake = false;
 
-        videoPlayer.prepareCompleted += (VideoPlayer source) =>
+        tmpvideoPlayer.prepareCompleted += (VideoPlayer source) =>
         {
             DebugHelpers.Log("dimensions " + source.texture.width + " x " + source.texture.height);
             Debug.LogError("CheckDimensions complete. dimensions " + source.texture.width + " x " + source.texture.height);
             SetupTV(source.texture.width, source.texture.height);
             Destroy(tempVideo);
         };
-        videoPlayer.Prepare();
+        tmpvideoPlayer.Prepare();
     }
 
     /* 
@@ -138,10 +138,10 @@ public class TVRemoteControl : MonoBehaviour
         /* commenting this out seemed to fix the double-audio issue. */
         //videoPlayer.audioOutputMode = UnityEngine.Video.VideoAudioOutputMode.AudioSource;
         //videoPlayer.SetTargetAudioSource(0, audioSource);
+        videoPlayer.playOnAwake = false;
         videoPlayer.isLooping = true;
         videoPlayer.url = videoURL;
         //videoPlayer.skipOnDrop = true;
-        videoPlayer.playOnAwake = false;
 
         tvReady = true;
         Debug.LogError("SetupTV Complete");

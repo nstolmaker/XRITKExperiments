@@ -77,6 +77,7 @@ public class NSTOL_SynchronousVideo : RealtimeComponent
     private void PlayStateDidChange(NSTOL_SynchronousVideoModel model, int playState)
     {
         DebugHelpers.Log("Playstate event triggered, updating to: " + playState);
+        Debug.Log("Playstate event triggered, updating to: " + playState);
         // !!! TODO: convert to ENUMs.
         switch (playState)
         {
