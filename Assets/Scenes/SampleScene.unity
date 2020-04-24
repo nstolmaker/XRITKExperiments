@@ -1771,6 +1771,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultMaterial: {fileID: 2100000, guid: 1bfe470b3fb0cb344826acc3c7952e02, type: 2}
   activeMaterial: {fileID: 2100000, guid: 146c20ce8f1f44a4d92bb38633866d9e, type: 2}
+  meshRenderer: {fileID: 0}
   grabInteractable: {fileID: 0}
 --- !u!1 &967824005
 GameObject:
@@ -1808,8 +1809,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94df148e32f405d46af46bf122da00ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultColor: {r: 0.9811321, g: 0.9737279, b: 0.7080812, a: 0}
-  activeColor: {r: 0.40650588, g: 0.5953394, b: 0.990566, a: 0}
+  defaultColor:
+    r: 0.9811321
+    g: 0.9737279
+    b: 0.7080812
+    a: 0
+  activeColor:
+    r: 0.40650588
+    g: 0.5953394
+    b: 0.990566
+    a: 0
+  anim: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  grabInteractable: {fileID: 0}
 --- !u!114 &967824007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2017,25 +2029,6 @@ MonoBehaviour:
     componentIDHasBeenUsed: 1
   _parentView: {fileID: 0}
   _childViews: []
---- !u!1 &1097640238 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5243464011641407817, guid: 99138c8d59078c34cba5da429778c2ef, type: 3}
-  m_PrefabInstance: {fileID: 528312140}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1097640239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1097640238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c87071fedf90db341849c5f55be3c698, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _position: {x: 0, y: 0, z: 0}
-  _rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1001 &1182050541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3716,8 +3709,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94df148e32f405d46af46bf122da00ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 0}
-  activeColor: {r: 0, g: 1, b: 0.083200455, a: 0}
+  defaultColor:
+    r: 0.6603774
+    g: 0.6603774
+    b: 0.6603774
+    a: 0
+  activeColor:
+    r: 0
+    g: 1
+    b: 0.083200455
+    a: 0
+  anim: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  grabInteractable: {fileID: 0}
 --- !u!114 &1928701688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3896,6 +3900,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a6b999634c66684eb63f3d314764f8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <realtimeView>k__BackingField: {fileID: 0}
+  _meshRenderer: {fileID: 0}
 --- !u!114 &1928701695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5279,13 +5285,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 5854491910021963525}
-    characterCount: 5
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 2
-    wordCount: 3
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -6455,13 +6461,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 5854491910347755392}
-    characterCount: 5
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 2
-    wordCount: 3
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
