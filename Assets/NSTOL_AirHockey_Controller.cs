@@ -38,15 +38,16 @@ namespace UnityEngine.XR.Interaction.Toolkit
             if (rtPaddle != null)
             {
                 rtPaddle.RequestOwnership();
-                DebugHelpers.Log("PickUpPaddle Requesting ownership for object:" + paddle.name);
+                Debug.Log("PickUpPaddle Requesting ownership for object:" + paddle.name);
             } else
             {
-                DebugHelpers.Log("PickUpPaddle Failed to find a RT transform. Not owning obj:" + paddle.name);
+                Debug.Log("PickUpPaddle Failed to find a RT transform. Not owning obj:" + paddle.name);
             }
         }
 
         private void DropPaddle(XRBaseInteractable paddle)
         {
+            /*
             // get and save a reference to the RealtimeTransform on the target object
             rtPaddle = paddle.GetComponent<RealtimeTransform>();
 
@@ -59,6 +60,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             {
                 DebugHelpers.Log("DropPaddle Failed to find a RT transform. Not owning obj:" + paddle.name);
             }
+            */
 
         }
 

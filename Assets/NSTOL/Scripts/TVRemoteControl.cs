@@ -87,7 +87,6 @@ public class TVRemoteControl : MonoBehaviour
             Destroy(tempVideo);
         };
         videoPlayer.Prepare();
-        //        SetupTV(720, 480);
     }
 
     /* 
@@ -142,7 +141,7 @@ public class TVRemoteControl : MonoBehaviour
         videoPlayer.isLooping = true;
         videoPlayer.url = videoURL;
         //videoPlayer.skipOnDrop = true;
-        videoPlayer.playOnAwake = true;
+        videoPlayer.playOnAwake = false;
 
         tvReady = true;
         Debug.LogError("SetupTV Complete");

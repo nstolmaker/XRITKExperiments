@@ -9,7 +9,7 @@ public class NSTOL_SynchronousVideoTest : MonoBehaviour
     [SerializeField]
     private string _previousPlaybackURL;
     [SerializeField]
-    public int _playState;
+    public int _playState = 0;
     [SerializeField]
     public int _previousPlayState;
 

@@ -81,13 +81,16 @@ public class NSTOL_SynchronousVideo : RealtimeComponent
         switch (playState)
         {
             case 0:
-                tv.GetComponent<TVRemoteControl>().Stop();
+                //tv.GetComponent<TVRemoteControl>().Stop();
+                tv.GetComponent<VideoPlayer>().Stop();
                 break;
             case 1:
-                tv.GetComponent<TVRemoteControl>().Play();
+                //tv.GetComponent<TVRemoteControl>().Play();
+                tv.GetComponent<VideoPlayer>().Play();
                 break;
             case 2:
-                tv.GetComponent<TVRemoteControl>().Pause();
+                //tv.GetComponent<TVRemoteControl>().Pause();
+                tv.GetComponent<VideoPlayer>().Pause();
                 break;
             case 3:
                 break;
