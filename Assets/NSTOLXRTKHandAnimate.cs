@@ -176,7 +176,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             {
                 // used internally so we can reuse this object.
                 // NSTOLLog.debugTextObject = debugTextObject;
-                DebugHelpers.Log(handSign + "\nThumbAct: " + handReducer.thumb + "\nGrip: " + grip + "\nTrigger: " + trigger);
+                //DebugHelpers.Log(handSign + "\nThumbAct: " + handReducer.thumb + "\nGrip: " + grip + "\nTrigger: " + trigger);
 
 #if UNITY_EDITOR
                 // Debug.Log(controller.tag.ToString() + debugOutput);

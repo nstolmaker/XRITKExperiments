@@ -56,8 +56,10 @@ public class TVRemoteControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (tvReady) 
+        /*
+        if (tvReady)
             CheckForTVCommands();
+            */
 
 
     }
@@ -79,13 +81,13 @@ public class TVRemoteControl : MonoBehaviour
 
         videoPlayer.prepareCompleted += (VideoPlayer source) =>
         {
-            DebugHelpers.Log("dimensions " + source.texture.width + " x " + source.texture.height); 
+            DebugHelpers.Log("dimensions " + source.texture.width + " x " + source.texture.height);
             Debug.LogError("CheckDimensions complete. dimensions " + source.texture.width + " x " + source.texture.height);
             SetupTV(source.texture.width, source.texture.height);
             Destroy(tempVideo);
         };
         videoPlayer.Prepare();
-//        SetupTV(720, 480);
+        //        SetupTV(720, 480);
     }
 
     /* 
@@ -123,7 +125,7 @@ public class TVRemoteControl : MonoBehaviour
         }
         videoPlayer = tv.AddComponent<UnityEngine.Video.VideoPlayer>();
 
-        /*
+        /* commenting this out seemed to fix the double-audio issue.
         if (gameObject.GetComponent<AudioSource>() != null)
         {
             Destroy(gameObject.GetComponent<AudioSource>());
@@ -134,6 +136,7 @@ public class TVRemoteControl : MonoBehaviour
         videoPlayer.renderMode = UnityEngine.Video.VideoRenderMode.MaterialOverride;
         videoPlayer.targetMaterialRenderer = m_Renderer;
         videoPlayer.targetMaterialProperty = "_MainTex";
+        /* commenting this out seemed to fix the double-audio issue. */
         //videoPlayer.audioOutputMode = UnityEngine.Video.VideoAudioOutputMode.AudioSource;
         //videoPlayer.SetTargetAudioSource(0, audioSource);
         videoPlayer.isLooping = true;
@@ -168,13 +171,27 @@ public class TVRemoteControl : MonoBehaviour
         }
     }
 
-    public void SwapVideo()
+    public void JumpToFrame(int frameNum)
     {
-        // x change aspect ratio of texture VideoTexture
-        // change video clip in VideoPlayer component
-        // X make sure VideoMaterial's Rendering Maps are set to the VideoTexture still
-        // X make sure the VideoMaterial is still assigned to the material of MeshRenderer component
+        Debug.LogError("Skipping to frame " + frameNum);
+        tv.GetComponent<VideoPlayer>().frame = frameNum;
     }
 
-    //
+    public void Stop()
+    {
+        Debug.LogError("Stopping VideoPlayer");
+        tv.GetComponent<VideoPlayer>().Stop();
+    }
+
+    public void Play()
+    {
+        Debug.LogError("Starting VideoPlayer");
+        tv.GetComponent<VideoPlayer>().Play();
+    }
+
+    public void Pause()
+    {
+        Debug.LogError("Pausing VideoPlayer");
+        tv.GetComponent<VideoPlayer>().Pause();
+    }
 }

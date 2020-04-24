@@ -120,7 +120,6 @@ namespace Tiinoo.DeviceConsole
 			
 			StretchToNormalSize();
             ShowHideInfo(false); // !!! changing starting value didnt work so changing it here
-            Debug.LogError("Testing!");
 
         }
 

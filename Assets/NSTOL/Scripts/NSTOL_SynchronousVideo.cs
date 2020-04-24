@@ -27,6 +27,7 @@ public class NSTOL_SynchronousVideo : RealtimeComponent
             {
                 _model.frameNumberDidChange -= FrameNumberDidChange;
                 _model.playbackURLDidChange -= VideoURLDidChange;
+                _model.playStateDidChange -= PlayStateDidChange;
             }
 
             _model = value;
@@ -34,6 +35,7 @@ public class NSTOL_SynchronousVideo : RealtimeComponent
             {
                 _model.frameNumberDidChange += FrameNumberDidChange;
                 _model.playbackURLDidChange += VideoURLDidChange;
+                _model.playStateDidChange += PlayStateDidChange;
             }
         }
     }
@@ -70,5 +72,61 @@ public class NSTOL_SynchronousVideo : RealtimeComponent
     {
         Debug.LogError("SetVideoURL(" + videoURL+")");
         _model.playbackURL = videoURL;
+    }
+
+    private void PlayStateDidChange(NSTOL_SynchronousVideoModel model, int playState)
+    {
+        DebugHelpers.Log("Playstate event triggered, updating to: " + playState);
+        // !!! TODO: convert to ENUMs.
+        switch (playState)
+        {
+            case 0:
+                tv.GetComponent<TVRemoteControl>().Stop();
+                break;
+            case 1:
+                tv.GetComponent<TVRemoteControl>().Play();
+                break;
+            case 2:
+                tv.GetComponent<TVRemoteControl>().Pause();
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 10:
+                tv.GetComponent<TVRemoteControl>().JumpToFrame(_model.frameNumber);
+                break;
+        }
+    }
+
+    public void SetPlayState(int playState)
+    {
+        DebugHelpers.Log("SetPlayState called, updating model to reflect new playstate of: " + playState);
+        _model.playState = playState;
+    }
+
+    public void Stop()
+    {
+        _model.playState = 0;
+        //tv.GetComponent<TVRemoteControl>().Stop();
+    }
+    public void Pause()
+    {
+        _model.playState = 2;
+        //tv.GetComponent<TVRemoteControl>().Pause();
+    }
+
+    public void Play()
+    {
+        Debug.LogError("Play called on synch vid");
+        _model.playState = 1;
+        //tv.GetComponent<TVRemoteControl>().Play();
+    }
+
+    public void JumpToFrame(int frameNum)
+    {
+        DebugHelpers.Log("skipToFrame: " + frameNum);
+        _model.frameNumber = frameNum;
+        //tv.GetComponent<TVRemoteControl>().JumpToFrame(frameNum);
     }
 }
