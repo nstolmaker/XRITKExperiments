@@ -24,7 +24,7 @@ public class TVRemoteControl : MonoBehaviour
     [SerializeField]
     private Renderer m_Renderer;
 
-    public string videoURL = "http://mirrors.standaloneinstaller.com/video-sample/Panasonic_HDC_TM_700_P_50i.mp4";
+    public string videoURL = "https://movietrailers.apple.com/movies/independent/abe/abe-trailer-1_i320.m4v"; //"https://docs.google.com/uc?export=download&id=1LG7un7gOiMhdueo6G88h0YkAmba20ZQC";
 
     public bool tvReady = false;
 
@@ -65,22 +65,27 @@ public class TVRemoteControl : MonoBehaviour
     /* 
      * I stole this code from the internet and only modified it slightly. i'm suspicious of whether it loads the entire video or not in order to do this test.
      * */
-    void CheckDimensions(string url)
+    public void CheckDimensions(string url)
     {
+        Debug.LogError("CheckDimensions(" + url + ")");
+
         GameObject tempVideo = new GameObject("Temp video for " + url);
         VideoPlayer videoPlayer = tempVideo.AddComponent<VideoPlayer>();
-        videoPlayer.renderMode = VideoRenderMode.RenderTexture;
+        videoPlayer.renderMode = VideoRenderMode.MaterialOverride;
         videoPlayer.targetTexture = new RenderTexture(1, 1, 0);
         videoPlayer.source = VideoSource.Url;
         videoPlayer.url = url;
+        videoPlayer.playOnAwake = true;
+
         videoPlayer.prepareCompleted += (VideoPlayer source) =>
         {
             DebugHelpers.Log("dimensions " + source.texture.width + " x " + source.texture.height); 
-            Debug.Log("dimensions " + source.texture.width + " x " + source.texture.height);
+            Debug.LogError("CheckDimensions complete. dimensions " + source.texture.width + " x " + source.texture.height);
             SetupTV(source.texture.width, source.texture.height);
             Destroy(tempVideo);
         };
         videoPlayer.Prepare();
+//        SetupTV(720, 480);
     }
 
     /* 
@@ -89,9 +94,13 @@ public class TVRemoteControl : MonoBehaviour
     void SetupTV(int remoteVidWidth, int remoteVidHeight)
     {
 
-
+        Debug.LogError("SetupTV(" + remoteVidWidth + ")");
 
         // first MeshRenderer
+        if (tv.GetComponent<MeshRenderer>() != null)
+        {
+            Destroy(tv.GetComponent<MeshRenderer>());
+        }
         m_Renderer = tv.AddComponent<MeshRenderer>();
 
         // then make the video texture
@@ -108,21 +117,32 @@ public class TVRemoteControl : MonoBehaviour
         m_Renderer.material = material;
 
         // now make the videoPlayer
+        if (tv.GetComponent<UnityEngine.Video.VideoPlayer>() != null)
+        {
+            Destroy(tv.GetComponent<UnityEngine.Video.VideoPlayer>());
+        }
         videoPlayer = tv.AddComponent<UnityEngine.Video.VideoPlayer>();
-        var audioSource = gameObject.AddComponent<AudioSource>();
 
+        /*
+        if (gameObject.GetComponent<AudioSource>() != null)
+        {
+            Destroy(gameObject.GetComponent<AudioSource>());
+        }
+        var audioSource = gameObject.AddComponent<AudioSource>();
+        */
         //videoPlayer.clip = videoClip;
         videoPlayer.renderMode = UnityEngine.Video.VideoRenderMode.MaterialOverride;
         videoPlayer.targetMaterialRenderer = m_Renderer;
         videoPlayer.targetMaterialProperty = "_MainTex";
-        videoPlayer.audioOutputMode = UnityEngine.Video.VideoAudioOutputMode.AudioSource;
-        videoPlayer.SetTargetAudioSource(0, audioSource);
+        //videoPlayer.audioOutputMode = UnityEngine.Video.VideoAudioOutputMode.AudioSource;
+        //videoPlayer.SetTargetAudioSource(0, audioSource);
         videoPlayer.isLooping = true;
         videoPlayer.url = videoURL;
-        videoPlayer.skipOnDrop = true;
+        //videoPlayer.skipOnDrop = true;
+        videoPlayer.playOnAwake = true;
 
         tvReady = true;
-
+        Debug.LogError("SetupTV Complete");
     }
 
     public void CheckForTVCommands()
@@ -135,6 +155,8 @@ public class TVRemoteControl : MonoBehaviour
             {
                 DebugHelpers.Log("Height/Width: " + videoPlayer.height + " / " + videoPlayer.width);
                 DebugHelpers.Log("Primary A Button Capacitive touch: " + trigger);
+
+                Debug.LogError("CheckForTVCommands() trigger pressed. isPlaying = " + tv.GetComponent<UnityEngine.Video.VideoPlayer>().isPlaying);
                 if (tv.GetComponent<UnityEngine.Video.VideoPlayer>().isPlaying == true)
                 {
                     tv.GetComponent<UnityEngine.Video.VideoPlayer>().Pause();

@@ -22,7 +22,10 @@ public class NSTOL_SynchronousVideoTest : MonoBehaviour
         // If the color has changed (via the inspector), call SetColor on the color sync component.
         if (_playbackURL != _previousPlaybackURL)
         {
+            UnityEngine.XR.Interaction.Toolkit.DebugHelpers.Log("playback URL changed. saving that, and calling setvideoURL");
+            Debug.LogError("Playback URL Chagned");
             _synchronousVideo.SetVideoURL(_playbackURL);
+            _previousPlaybackURL = _playbackURL;
         }
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.3517761, g: 0.57806706, b: 0.76798236, a: 1}
+  m_IndirectSpecularColor: {r: 0.35239303, g: 0.5784324, b: 0.76843244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &241781054 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 451110, guid: 70cfbd2def5289a4d956c28f502a3f03, type: 3}
+  m_PrefabInstance: {fileID: 1182050541}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &266501160 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4938909679994006, guid: 82b0a74aac4d74b44a54c0589d875e54, type: 3}
@@ -2031,6 +2036,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _position: {x: 0, y: 0, z: 0}
   _rotation: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1001 &1182050541
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1523592691}
+    m_Modifications:
+    - target: {fileID: 151110, guid: 70cfbd2def5289a4d956c28f502a3f03, type: 3}
+      propertyPath: m_Name
+      value: DCLoader
+      objectReference: {fileID: 0}
+    - target: {fileID: 451110, guid: 70cfbd2def5289a4d956c28f502a3f03, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 451110, guid: 70cfbd2def5289a4d956c28f502a3f03, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 451110, guid: 70cfbd2def5289a4d956c28f502a3f03, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 451110, guid: 70cfbd2def5289a4d956c28f502a3f03, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 451110, guid: 70cfbd2def5289a4d956c28f502a3f03, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 451110, guid: 70cfbd2def5289a4d956c28f502a3f03, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 451110, guid: 70cfbd2def5289a4d956c28f502a3f03, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 451110, guid: 70cfbd2def5289a4d956c28f502a3f03, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 451110, guid: 70cfbd2def5289a4d956c28f502a3f03, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 451110, guid: 70cfbd2def5289a4d956c28f502a3f03, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 451110, guid: 70cfbd2def5289a4d956c28f502a3f03, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 70cfbd2def5289a4d956c28f502a3f03, type: 3}
 --- !u!1 &1204810458
 GameObject:
   m_ObjectHideFlags: 0
@@ -2042,6 +2104,7 @@ GameObject:
   - component: {fileID: 1204810461}
   - component: {fileID: 1204810460}
   - component: {fileID: 1204810459}
+  - component: {fileID: 1204810462}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2124,6 +2187,14 @@ Transform:
   m_Father: {fileID: 462157598}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &1204810462
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204810458}
+  m_Enabled: 1
 --- !u!1 &1226783481
 GameObject:
   m_ObjectHideFlags: 0
@@ -2433,9 +2504,9 @@ MonoBehaviour:
   m_AudioClipForOnHoverEnter: {fileID: 0}
   m_PlayAudioClipOnHoverExit: 0
   m_AudioClipForOnHoverExit: {fileID: 0}
-  m_PlayHapticsOnSelectEnter: 0
-  m_HapticSelectEnterIntensity: 0
-  m_HapticSelectEnterDuration: 0
+  m_PlayHapticsOnSelectEnter: 1
+  m_HapticSelectEnterIntensity: 0.8
+  m_HapticSelectEnterDuration: 0.2
   m_PlayHapticsOnSelectExit: 0
   m_HapticSelectExitIntensity: 0
   m_HapticSelectExitDuration: 0
@@ -2446,7 +2517,7 @@ MonoBehaviour:
   m_HapticHoverExitIntensity: 0
   m_HapticHoverExitDuration: 0
   m_LineType: 0
-  m_MaxRaycastDistance: 30
+  m_MaxRaycastDistance: 120
   m_ReferenceFrame: {fileID: 0}
   m_Velocity: 16
   m_Acceleration: 9.8
@@ -3331,6 +3402,7 @@ Transform:
   m_Children:
   - {fileID: 1349681547}
   - {fileID: 2067535162}
+  - {fileID: 241781054}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3450,7 +3522,7 @@ MonoBehaviour:
   m_Normal: {fileID: 0}
   m_Albedo: {fileID: 0}
   m_Renderer: {fileID: 0}
-  videoURL: http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4
+  videoURL: https://movietrailers.apple.com/movies/samuel_goldwyn/to-the-stars/to-the-stars-trailer-1_i320.m4v
   tvReady: 0
 --- !u!114 &1693240923
 MonoBehaviour:
