@@ -19,6 +19,12 @@ public class TVRemoteControl : MonoBehaviour
     [SerializeField]
     private VideoPlayer videoPlayer;
 
+    //[SerializeField]
+    //private string _playbackURL;
+    [SerializeField]
+    private string previousPlaybackURL;
+    private NSTOL_SynchronousVideo _synchronousVideo;
+
     [SerializeField]
     public Texture m_MainTexture, m_Normal, m_Albedo;
     [SerializeField]
@@ -31,7 +37,7 @@ public class TVRemoteControl : MonoBehaviour
 
     void Start()
     {
-        DebugHelpers.Log("starting tv remote control");
+        //DebugHelpers.Log("starting tv remote control");
         if (!controller)
         {
             controller = GameObject.Find("RightHand Controller").GetComponent<XRController>();
@@ -50,16 +56,20 @@ public class TVRemoteControl : MonoBehaviour
             throw new System.Exception("TV or Controller not found. TVRemoteControl failed to start. Check the TVRemoteControl.cs file and confirm you didn't rename the game objects");
         }
 
+        // Get a reference to the NSTOL_SynchronousVideo component.
+        _synchronousVideo = GetComponent<NSTOL_SynchronousVideo>();
+        previousPlaybackURL = videoURL;
+
         CheckDimensions(videoURL);
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*
+
         if (tvReady)
             CheckForTVCommands();
-            */
+
 
 
     }
@@ -95,7 +105,7 @@ public class TVRemoteControl : MonoBehaviour
     void SetupTV(int remoteVidWidth, int remoteVidHeight)
     {
 
-        Debug.LogError("SetupTV(" + remoteVidWidth + ")");
+        //Debug.LogError("SetupTV(" + remoteVidWidth + ")");
 
         // first MeshRenderer
         if (tv.GetComponent<MeshRenderer>() != null)
@@ -144,12 +154,12 @@ public class TVRemoteControl : MonoBehaviour
         //videoPlayer.skipOnDrop = true;
 
         tvReady = true;
-        Debug.LogError("SetupTV Complete");
+        //Debug.LogError("SetupTV Complete");
     }
 
     public void CheckForTVCommands()
     {
-
+        /*
         // trigger button pressed
         if (controller.inputDevice.TryGetFeatureValue(CommonUsages.triggerButton, out bool trigger))
         {
@@ -167,6 +177,24 @@ public class TVRemoteControl : MonoBehaviour
                     tv.GetComponent<UnityEngine.Video.VideoPlayer>().Play();
                 }
             }
+        }
+        */
+
+        if (videoURL != previousPlaybackURL)
+        {
+            // Step 1. the video player URL changed, so update the model. 
+            Debug.LogError("Step 1 TVRemoteControl.cs detect vid url change to " + videoURL);
+            DebugHelpers.Log("Step 1 TVRemoteControl.cs detect vid url change to " + videoURL);
+            previousPlaybackURL = videoURL;
+            // if the new videoURL is not already set as the VideoPlayer's URL, then propogate this out to the synchronous component.
+            // NOTE: It might be that we can just use the video property itself, instead of this videoURL variable, but I think this additional layer of abstraction will be a good thing.
+            if (videoURL != GetComponent<VideoPlayer>().url)
+            {
+                Debug.LogError("Step 1b TVRemoteControl.cs calling SetVideoURL" + videoURL);
+                DebugHelpers.Log("Step 1b TVRemoteControl.cs calling SetVideoURL" + videoURL);
+                _synchronousVideo.SetVideoURL(videoURL);
+            }
+
         }
     }
 

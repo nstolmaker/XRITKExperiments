@@ -88,7 +88,7 @@ public class NSTOL_GhostFingerSelect : MonoBehaviour
             {
                 if (thumbstick != null)
                 {
-                    Debug.Log("thumbstick: " + thumbstick.ToString());
+                    //Debug.Log("thumbstick: " + thumbstick.ToString());
 
                     // map scalar to the width and height of the remote
                     thumbPosition = Scale(thumbstick.x, thumbstick.y, thingManager.transform.localScale.x, thingManager.transform.localScale.z);
@@ -106,31 +106,26 @@ public class NSTOL_GhostFingerSelect : MonoBehaviour
                     {
                         //Debug.Log("thumbstickClick: " + trigger.ToString());
                         // see if there's a collision and trigger an event if there is. (OnCollisionStay should be triggered, just set clicking=true and it'll run.)
-                        DebugHelpers.Log("Clicking on: " + collidingWith.name);
-                        Debug.LogError("Clicking on: " + collidingWith.name);
+                        //DebugHelpers.Log("Clicking on: " + collidingWith.name);
+                        //Debug.LogError("Clicking on: " + collidingWith.name);
                         var tv = GameObject.Find("TVScreen");
-                        var syncVidComponent = tv.GetComponent<NSTOL_SynchronousVideoTest>();
+                        var syncVidComponent = tv.GetComponent<NSTOL_SynchronousVideo>();
                         switch (collidingWith.name)
                         {
                             case "Play":
                                 DebugHelpers.Log("Play button pushed");
                                 Debug.LogError("Play button pushed");
-                                syncVidComponent._playState = 1;
+                                syncVidComponent.Play();
                                 break;
                             case "Pause":
                                 DebugHelpers.Log("Pause button pushed");
                                 Debug.LogError("Pause button pushed");
-                                syncVidComponent._playState = 2;
+                                syncVidComponent.Pause();
                                 break;
                             case "Stop":
                                 DebugHelpers.Log("Stop button pushed");
                                 Debug.LogError("Stop button pushed");
-                                syncVidComponent._playState = 0;
-                                break;
-                            case "wtf":
-                                DebugHelpers.Log("wtf");
-                                Debug.LogError("wtf");
-                                syncVidComponent._playState = 1;
+                                syncVidComponent.Stop();
                                 break;
                             default:
                                 DebugHelpers.Log("DEFAULT ON OnCollisionStay" + collidingWith.name);

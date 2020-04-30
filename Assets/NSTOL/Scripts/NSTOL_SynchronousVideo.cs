@@ -11,7 +11,7 @@ public class NSTOL_SynchronousVideo : RealtimeComponent
     private NSTOL_SynchronousVideoModel _model;
     [SerializeField]
     private GameObject tv;
-    void Start()
+    void Awake()
     {
         if (!tv)
         {
@@ -61,23 +61,24 @@ public class NSTOL_SynchronousVideo : RealtimeComponent
     public void VideoURLDidChange(NSTOL_SynchronousVideoModel model, string videoURL)
     {
         // update local video url to new url
-        DebugHelpers.Log("Loading new video URL: " + videoURL);
-        Debug.LogError("Loading new video URL: " + videoURL);
-        tv.GetComponent<TVRemoteControl>().videoURL = videoURL; // this updates the TVRemoteControl component, which is what we read from mostly. That might be kinda confusing.
+        DebugHelpers.Log("Step 3 Loading new video URL: " + videoURL);
+        Debug.LogError("Step 3 Loading new video URL: " + videoURL);
         tv.GetComponent<VideoPlayer>().url = videoURL;  // this updates the actual video player url. It might make more sense to trigger CheckDimensions or Setup() with an argument and let it handle the change.
+        tv.GetComponent<TVRemoteControl>().videoURL = videoURL; // this updates the TVRemoteControl component, which is what we read from mostly. That might be kinda confusing.
         //tv.GetComponent<TVRemoteControl>().CheckDimensions(videoURL);
     }
 
     public void SetVideoURL(string videoURL)
     {
-        Debug.LogError("SetVideoURL(" + videoURL+")");
+        Debug.LogError("Step 2 SetVideoURL(" + videoURL+")");
+        DebugHelpers.Log("Step 2.");
         _model.playbackURL = videoURL;
     }
 
     private void PlayStateDidChange(NSTOL_SynchronousVideoModel model, int playState)
     {
         DebugHelpers.Log("Playstate event triggered, updating to: " + playState);
-        Debug.Log("Playstate event triggered, updating to: " + playState);
+        Debug.LogError("Playstate event triggered, updating to: " + playState);
         // !!! TODO: convert to ENUMs.
         switch (playState)
         {

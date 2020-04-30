@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: dc_settings
   m_EditorClassIdentifier: 
   openWithGesture: 2
-  openWithKey: 330
-  uiLayer: 0
+  openWithKey: 282
+  uiLayer: 5
   canvasSortOrder: 100
   exceptionNotification: 1

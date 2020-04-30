@@ -6,11 +6,11 @@ using Normal.Realtime.Serialization;
 [RealtimeModel]
 public partial class NSTOL_SynchronousVideoModel 
 {
-    [RealtimeProperty(100, true, true)]
+    [RealtimeProperty(200, true, true)]
     private int _frameNumber = 0;
-    [RealtimeProperty(101, true, true)]
+    [RealtimeProperty(201, true, true)]
     private string _playbackURL = "";
-    [RealtimeProperty(102, true, true)]
+    [RealtimeProperty(202, true, true)]
     private int _playState = 0;
     /* Valid states:
      * 

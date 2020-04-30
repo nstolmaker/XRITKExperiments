@@ -42,7 +42,7 @@ namespace Tiinoo.DeviceConsole
 		private bool m_isInited;
 
 		private bool m_isShowInfo = true;
-		private bool m_isShowWarning = false;   // !!! hard-coded change here.
+		private bool m_isShowWarning = true;
 		private bool m_isShowError = true;
 		private bool m_isShowWatchedLogsOnly = false;
 		
@@ -119,9 +119,7 @@ namespace Tiinoo.DeviceConsole
 			m_consoleNormalHeight = m_consoleRectTransform.sizeDelta.y;
 			
 			StretchToNormalSize();
-            ShowHideInfo(false); // !!! changing starting value didnt work so changing it here
-
-        }
+		}
 
 		private void MarkDirty()
 		{
