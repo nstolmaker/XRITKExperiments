@@ -7,7 +7,7 @@ using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.Video;
 
-public class TVRemoteControl : MonoBehaviour
+public class NSTOL_TVRemoteControl : MonoBehaviour
 {
     [SerializeField]
     private XRController controller;    // name it "RightHand Controller"
@@ -30,7 +30,7 @@ public class TVRemoteControl : MonoBehaviour
     [SerializeField]
     private Renderer m_Renderer;
 
-    public string videoURL = "https://movietrailers.apple.com/movies/independent/abe/abe-trailer-1_i320.m4v"; //"https://docs.google.com/uc?export=download&id=1LG7un7gOiMhdueo6G88h0YkAmba20ZQC";
+    public string videoURL = "https://movietrailers.apple.com/movies/independent/abe/abe-trailer-1_i320.m4v";  
 
     public bool tvReady = false;
 

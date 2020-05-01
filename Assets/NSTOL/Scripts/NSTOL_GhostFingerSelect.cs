@@ -160,13 +160,13 @@ public class NSTOL_GhostFingerSelect : LocomotionProvider   // extending Locomot
                             //DebugHelpers.Log("Video1 button pushed");
                             SendHapticPulse();
                             if (trigger > 0.02)
-                                tv.GetComponent<TVRemoteControl>().videoURL = "https://movietrailers.apple.com/movies/independent/blood-and-money/blood-and-money-trailer-1_i320.m4v";
+                                tv.GetComponent<NSTOL_TVRemoteControl>().videoURL = "https://movietrailers.apple.com/movies/independent/blood-and-money/blood-and-money-trailer-1_i320.m4v";
                             break;
                         case "Video2":
                             //DebugHelpers.Log("Video2 button pushed");
                             SendHapticPulse();
                             if (trigger > 0.02)
-                                tv.GetComponent<TVRemoteControl>().videoURL = "https://movietrailers.apple.com/movies/lionsgate/the-quarry/the-quarry-trailer-1_i320.m4v";
+                                tv.GetComponent<NSTOL_TVRemoteControl>().videoURL = "https://movietrailers.apple.com/movies/lionsgate/the-quarry/the-quarry-trailer-1_i320.m4v";
                             break;
                         default:
                             //DebugHelpers.Log("DEFAULT ON OnCollisionStay" + collidingWith.name);

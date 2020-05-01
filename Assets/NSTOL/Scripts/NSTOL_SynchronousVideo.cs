@@ -65,7 +65,7 @@ public class NSTOL_SynchronousVideo : RealtimeComponent
         // update local video url to new url
         //DebugHelpers.Log("Step 3 Loading new video URL: " + videoURL);
         tv.GetComponent<VideoPlayer>().url = videoURL;  // this updates the actual video player url. It might make more sense to trigger CheckDimensions or Setup() with an argument and let it handle the change.
-        tv.GetComponent<TVRemoteControl>().videoURL = videoURL; // this updates the TVRemoteControl component, which is what we read from mostly. That might be kinda confusing.
+        tv.GetComponent<NSTOL_TVRemoteControl>().videoURL = videoURL; // this updates the TVRemoteControl component, which is what we read from mostly. That might be kinda confusing.
     }
 
     public void SetVideoURL(string videoURL)
@@ -92,7 +92,7 @@ public class NSTOL_SynchronousVideo : RealtimeComponent
             case 3:
                 break;
             case 10:
-                tv.GetComponent<TVRemoteControl>().JumpToFrame(_model.frameNumber);
+                tv.GetComponent<NSTOL_TVRemoteControl>().JumpToFrame(_model.frameNumber);
                 break;
         }
     }
