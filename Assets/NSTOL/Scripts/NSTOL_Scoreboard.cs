@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Scoreboard : MonoBehaviour
+public class NSTOL_Scoreboard : MonoBehaviour
 {
 
     public TextMeshPro side1;

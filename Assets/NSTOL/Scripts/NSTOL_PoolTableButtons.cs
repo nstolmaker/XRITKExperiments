@@ -4,38 +4,11 @@ using UnityEngine;
 
 namespace UnityEngine.XR.Interaction.Toolkit
 {
-    public class PoolTableButtons : XRBaseInteractable
+    public class NSTOL_PoolTableButtons : XRBaseInteractable
     {
 
         public string buttonFunction = "Reset";
-        private Vector3 originalBlueButtonTransform;
-        private Vector3 originalRedButtonTransform;
         public bool buttonDown;
-
-
-        /*
-        void Start()
-        {
-
-
-            this.originalBlueButtonTransform = GameObject.Find("BlueButton").transform.localPosition;
-            this.originalRedButtonTransform = GameObject.Find("RedButton").transform.localPosition;
-        }
-        
-        // Update is called once per frame
-        void Update()
-        {
-            //Theres no start, so we just do this here?
-            if (!simpleInteractable)
-            {
-                simpleInteractable = GetComponent<XRSimpleInteractable>();
-                simpleInteractable.onSelectEnter.AddListener(OnButtonSelect);
-                simpleInteractable.onActivate.AddListener(OnButtonSelect);
-            }
-
-        }
-        */
-
 
 
         protected override void OnSelectEnter(XRBaseInteractor controller)
@@ -47,13 +20,18 @@ namespace UnityEngine.XR.Interaction.Toolkit
             switch (buttonFunction)
             {
                 case "Reset":
-                    gameObject.GetComponentInParent<HockeyController>().ResetPuck();
+                    gameObject.GetComponentInParent<NSTOL_HockeyController>().ResetPuck();
                     break;
                 case "ResetAll":
-                    gameObject.GetComponentInParent<HockeyController>().ResetScore();
+                    gameObject.GetComponentInParent<NSTOL_HockeyController>().ResetScore();
                     break;
 
             }
+            //ButtonGoesOut();
+        }
+
+        protected override void OnSelectExit(XRBaseInteractor controller)
+        {
             ButtonGoesOut();
         }
 

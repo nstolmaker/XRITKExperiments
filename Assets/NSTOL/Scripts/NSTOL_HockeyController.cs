@@ -5,16 +5,16 @@ using Normal.Realtime;
 
 namespace UnityEngine.XR.Interaction.Toolkit
 {
-    public class HockeyController : MonoBehaviour
+    public class NSTOL_HockeyController : MonoBehaviour
     {
         public GameObject tableTop;
-        public HockeyPaddle player1;
-        public HockeyPaddle player2;
-        public HockeyGoal goal1;
-        public HockeyGoal goal2;
-        public Puck puck;
+        public NSTOL_HockeyPaddle player1;
+        public NSTOL_HockeyPaddle player2;
+        public NSTOL_HockeyGoal goal1;
+        public NSTOL_HockeyGoal goal2;
+        public NSTOL_Puck puck;
         public Vector3 dropPuckPos = new Vector3(0, 0, 0);
-        public Scoreboard score;
+        public NSTOL_Scoreboard score;
         public int[] pscore = { 0, 0 };
         private bool justScored = false;
 

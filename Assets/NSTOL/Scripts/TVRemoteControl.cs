@@ -73,7 +73,7 @@ public class TVRemoteControl : MonoBehaviour
      * */
     public void CheckDimensions(string url)
     {
-        Debug.LogError("CheckDimensions(" + url + ")");
+        //Debug.Log("CheckDimensions(" + url + ")");
 
         GameObject tempVideo = new GameObject("Temp video for " + url);
         VideoPlayer tmpvideoPlayer = tempVideo.AddComponent<VideoPlayer>();
@@ -85,8 +85,8 @@ public class TVRemoteControl : MonoBehaviour
 
         tmpvideoPlayer.prepareCompleted += (VideoPlayer source) =>
         {
-            DebugHelpers.Log("dimensions " + source.texture.width + " x " + source.texture.height);
-            Debug.LogError("CheckDimensions complete. dimensions " + source.texture.width + " x " + source.texture.height);
+            //DebugHelpers.Log("dimensions " + source.texture.width + " x " + source.texture.height);
+            Debug.Log("CheckDimensions complete. dimensions " + source.texture.width + " x " + source.texture.height);
             SetupTV(source.texture.width, source.texture.height);
             Destroy(tempVideo);
         };

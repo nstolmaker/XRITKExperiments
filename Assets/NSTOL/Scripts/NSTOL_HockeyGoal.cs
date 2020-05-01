@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace UnityEngine.XR.Interaction.Toolkit
 {
-    public class HockeyGoal : MonoBehaviour
+    public class NSTOL_HockeyGoal : MonoBehaviour
     {
         public int playerNum = 1;
         public int score = 0;
-        public HockeyGoal scoreboard;
+        public NSTOL_HockeyGoal scoreboard;
         // Start is called before the first frame update
         void Start()
         {
@@ -27,7 +27,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
                 Debug.Log("Goal!");
                 DebugHelpers.Log("Goal! For player " + playerNum);
                 score += 1;
-                this.GetComponentInParent<HockeyController>().GoalScored(playerNum);
+                this.GetComponentInParent<NSTOL_HockeyController>().GoalScored(playerNum);
             }
         }
 
