@@ -14,7 +14,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         protected override void OnSelectEnter(XRBaseInteractor controller)
         {
             //Debug.Log("collided with " + other.name);
-            DebugHelpers.Log("Button Push Triggered on " + controller.name + "with function: "+ buttonFunction);
+            NSTOL_DebugHelpers.Log("Button Push Triggered on " + controller.name + "with function: "+ buttonFunction);
             //all hands have an VORGrabber object on them. So this way we know it was their hand and not their face or player collider.
             ButtonGoesIn();
             switch (buttonFunction)

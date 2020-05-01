@@ -14,7 +14,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// XRController MonoBehaviour that handles hand movement/animation
     /// </summary>
     [DisallowMultipleComponent, AddComponentMenu("NSTOL Hand Animator (April)")]
-    public class NSTOLXRTKHandAnimate : MonoBehaviour
+    public class NSTOL_HandAnimate : MonoBehaviour
     {
 
         string debugOutput = ""; // debug output, although mostly we're doign this in the NSTOLDebug GameObjects' debug script, DebugHelpers.

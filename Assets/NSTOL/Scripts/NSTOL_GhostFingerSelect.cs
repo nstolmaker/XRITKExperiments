@@ -127,7 +127,7 @@ public class NSTOL_GhostFingerSelect : MonoBehaviour
                             //DebugHelpers.Log("Play button mouseover");
                             SendHapticPulse();
                             if (trigger > 0.02) {
-                                DebugHelpers.Log("Play button pushed");
+                                NSTOL_DebugHelpers.Log("Play button pushed");
                                 syncVidComponent.Play();
                             }
                             break;

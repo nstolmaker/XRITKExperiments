@@ -50,7 +50,7 @@ public class NSTOL_SynchronousVideo : RealtimeComponent
     private void SmoothToNewFrame(int frameNumber)
     {
         // the plan is to calculate the time variance and then modify the playback speed paramater for like 0.5s or something to get it back into sync.
-        DebugHelpers.Log("Smoothing to new frame " + frameNumber);
+        NSTOL_DebugHelpers.Log("Smoothing to new frame " + frameNumber);
 
     }
 
@@ -119,7 +119,7 @@ public class NSTOL_SynchronousVideo : RealtimeComponent
 
     public void JumpToFrame(int frameNum)
     {
-        DebugHelpers.Log("skipToFrame: " + frameNum);
+        NSTOL_DebugHelpers.Log("skipToFrame: " + frameNum);
         _model.frameNumber = frameNum;
     }
 }

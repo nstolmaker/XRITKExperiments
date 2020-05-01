@@ -25,7 +25,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             if (other.name == "AirHockeyPuck")
             {
                 Debug.Log("Goal!");
-                DebugHelpers.Log("Goal! For player " + playerNum);
+                NSTOL_DebugHelpers.Log("Goal! For player " + playerNum);
                 score += 1;
                 this.GetComponentInParent<NSTOL_HockeyController>().GoalScored(playerNum);
             }

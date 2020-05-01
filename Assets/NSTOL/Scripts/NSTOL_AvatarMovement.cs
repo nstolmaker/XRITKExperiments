@@ -8,7 +8,7 @@ namespace UnityEngine.XR.Interaction.Toolkit {
     /// The NSTOLAvatarMovement is a locomotion provider that allows the user to move their rig using a specified 2d axis input.
     /// the provider can take input from two different devices (eg: L & R hands). It is a ripoff of the SnapTurnProvider.cs XRToolkit provider.
     /// </summary>
-    public class NSTOLAvatarMovement : LocomotionProvider
+    public class NSTOL_AvatarMovement : LocomotionProvider
     {
 
         [Tooltip("The axis on the controller you're gonna use for moving around. Look at the ProjectSettings panel's Input for this")]

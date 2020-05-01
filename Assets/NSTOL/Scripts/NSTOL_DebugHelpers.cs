@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace UnityEngine.XR.Interaction.Toolkit
 {
-    public class DebugHelpers : LocomotionProvider
+    public class NSTOL_DebugHelpers : LocomotionProvider
     {
 
 

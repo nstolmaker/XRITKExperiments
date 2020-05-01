@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Normal.Realtime;
 
-public class MouthMove : MonoBehaviour
+public class NSTOL_MouthMove : MonoBehaviour
 {
     public Transform mouth;
 

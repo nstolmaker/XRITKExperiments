@@ -25,7 +25,7 @@ public class NSTOL_SynchronousVideoTest : MonoBehaviour
         // If the playstate has changed, call SetPlayState on the _synchronousVideo component.
         if (_playState != _previousPlayState)
         {
-            DebugHelpers.Log("_playState changed. saving that, and calling SetPlayState");
+            NSTOL_DebugHelpers.Log("_playState changed. saving that, and calling SetPlayState");
             Debug.LogError("Playstate Chagned");
             _synchronousVideo.SetPlayState(_playState);
             _previousPlayState = _playState;
