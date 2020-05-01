@@ -154,14 +154,14 @@ public class TVRemoteControl : MonoBehaviour
         if (videoURL != previousPlaybackURL)
         {
             // Step 1. the video player URL changed, so update the model. 
-            Debug.LogError("Step 1 TVRemoteControl.cs detect vid url change to " + videoURL);
+            Debug.Log("Step 1 TVRemoteControl.cs detect vid url change to " + videoURL);
             NSTOL_DebugHelpers.Log("Step 1 TVRemoteControl.cs detect vid url change to " + videoURL);
             previousPlaybackURL = videoURL;
             // if the new videoURL is not already set as the VideoPlayer's URL, then propogate this out to the synchronous component.
             // NOTE: It might be that we can just use the video property itself, instead of this videoURL variable, but I think this additional layer of abstraction will be a good thing.
             if (videoURL != GetComponent<VideoPlayer>().url)
             {
-                Debug.LogError("Step 1b TVRemoteControl.cs calling SetVideoURL" + videoURL);
+                Debug.Log("Step 1b TVRemoteControl.cs calling SetVideoURL" + videoURL);
                 NSTOL_DebugHelpers.Log("Step 1b TVRemoteControl.cs calling SetVideoURL" + videoURL);
                 _synchronousVideo.SetVideoURL(videoURL);
             }

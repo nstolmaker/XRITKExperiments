@@ -25,6 +25,8 @@ public class NSTOL_GhostFingerSelect : LocomotionProvider   // extending Locomot
     private bool clicking = false;
     [SerializeField]
     private GameObject collidingWith;
+    [SerializeField][Tooltip("Auto-populated. looks for a gameobject called 'TVScreen'")]
+    GameObject tv;
 
     [SerializeField]
     private float hapticFingerHoverIntensity = 0.2f;
@@ -48,6 +50,11 @@ public class NSTOL_GhostFingerSelect : LocomotionProvider   // extending Locomot
         if (!ghostFinger)
         {
             ghostFinger = GameObject.Find("GhostFinger");
+        }
+
+        if (!tv)
+        {
+            tv = GameObject.Find("TVScreen");
         }
 
         ghostFinger.GetComponent<NSTOL_GhostFingerClick>().CollideWithPlayer += (GameObject collideWithName) => collidingWith = collideWithName;
@@ -119,13 +126,13 @@ public class NSTOL_GhostFingerSelect : LocomotionProvider   // extending Locomot
                 }
             }
 
-            // Joystick Click
+            // trigger activated
             if (controller.inputDevice.TryGetFeatureValue(CommonUsages.trigger, out float trigger))
             {
                 // collidingWith is handled by the event system. It's instantiated in this file in the Start() method.
                 if (collidingWith != null)
                 {
-                    var tv = GameObject.Find("TVScreen");
+
                     var syncVidComponent = tv.GetComponent<NSTOL_SynchronousVideo>();
                     switch (collidingWith.name)
                     {
@@ -153,13 +160,13 @@ public class NSTOL_GhostFingerSelect : LocomotionProvider   // extending Locomot
                             //DebugHelpers.Log("Video1 button pushed");
                             SendHapticPulse();
                             if (trigger > 0.02)
-                                GetComponent<TVRemoteControl>().videoURL = "https://movietrailers.apple.com/movies/independent/blood-and-money/blood-and-money-trailer-1_i320.m4v";
+                                tv.GetComponent<TVRemoteControl>().videoURL = "https://movietrailers.apple.com/movies/independent/blood-and-money/blood-and-money-trailer-1_i320.m4v";
                             break;
                         case "Video2":
                             //DebugHelpers.Log("Video2 button pushed");
                             SendHapticPulse();
                             if (trigger > 0.02)
-                                GetComponent<TVRemoteControl>().videoURL = "https://movietrailers.apple.com/movies/lionsgate/the-quarry/the-quarry-trailer-1_i320.m4v";
+                                tv.GetComponent<TVRemoteControl>().videoURL = "https://movietrailers.apple.com/movies/lionsgate/the-quarry/the-quarry-trailer-1_i320.m4v";
                             break;
                         default:
                             //DebugHelpers.Log("DEFAULT ON OnCollisionStay" + collidingWith.name);
