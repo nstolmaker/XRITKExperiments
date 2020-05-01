@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class NSTOL_GhostFingerSelect : MonoBehaviour
+public class NSTOL_GhostFingerSelect : LocomotionProvider   // extending LocomotionProvider so that I can lock snap-turn movement while using the remote. This might not be the preferred pattern, i should ask someone.
 {
     [SerializeField]
     private GameObject thingManager;
@@ -16,7 +16,7 @@ public class NSTOL_GhostFingerSelect : MonoBehaviour
     [SerializeField]
     private XRRayInteractor interactor = null;
     [SerializeField]
-    private bool beingHeld = false;
+    public bool beingHeld = false;
     [SerializeField]
     private Vector3 thumbPosition;
     [SerializeField]
@@ -72,13 +72,19 @@ public class NSTOL_GhostFingerSelect : MonoBehaviour
         //interactor.onSelectExit.AddListener(DropPaddle);
         beingHeld = true;
 
-        device = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
-        if (device.TryGetHapticCapabilities(out capabilities))
+        if (BeginLocomotion())
         {
-            if (!capabilities.supportsImpulse)
+            controller.enableInputActions = false;
+            device = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
+            if (device.TryGetHapticCapabilities(out capabilities))
             {
-                Debug.LogError("capabilities.supportsImpluse is false. Is this not a haptic-capable XR controller?");
+                if (!capabilities.supportsImpulse)
+                {
+                    Debug.LogError("capabilities.supportsImpluse is false. Is this not a haptic-capable XR controller?");
+                }
             }
+            EndLocomotion();
+            controller.enableInputActions = true;
         }
     }
 

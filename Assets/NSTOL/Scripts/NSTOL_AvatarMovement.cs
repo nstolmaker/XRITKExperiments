@@ -43,10 +43,10 @@ namespace UnityEngine.XR.Interaction.Toolkit {
         public InputAxes turnUsage { get { return m_MoveUsage; } set { m_MoveUsage = value; } }
 
         [SerializeField]
-        [Tooltip("A list of controllers that allow Snap Turn.  If an XRController is not enabled, or does not have input actions enabled.  Snap Turn will not work.")]
+        [Tooltip("A list of controllers that allow smooth movement.  If an XRController is not enabled, or does not have input actions enabled smooth movement will not work.")]
         List<XRController> m_Controllers = new List<XRController>();
         /// <summary>
-        /// The XRControllers that allow SnapTurn.  An XRController must be enabled in order to Snap Turn.
+        /// The XRControllers that allow smooth movement.  An XRController must be enabled in order to smooth move.
         /// </summary>
         public List<XRController> controllers { get { return m_Controllers; } set { m_Controllers = value; } }
 
