@@ -113,23 +113,23 @@ public class NSTOL_GhostFingerSelect : MonoBehaviour
                         switch (collidingWith.name)
                         {
                             case "Play":
-                                DebugHelpers.Log("Play button pushed");
-                                Debug.LogError("Play button pushed");
+                                //DebugHelpers.Log("Play button pushed");
+                                //Debug.LogError("Play button pushed");
                                 syncVidComponent.Play();
                                 break;
                             case "Pause":
-                                DebugHelpers.Log("Pause button pushed");
-                                Debug.LogError("Pause button pushed");
+                                //DebugHelpers.Log("Pause button pushed");
+                                //Debug.LogError("Pause button pushed");
                                 syncVidComponent.Pause();
                                 break;
                             case "Stop":
-                                DebugHelpers.Log("Stop button pushed");
-                                Debug.LogError("Stop button pushed");
+                                //DebugHelpers.Log("Stop button pushed");
+                                //Debug.LogError("Stop button pushed");
                                 syncVidComponent.Stop();
                                 break;
                             default:
-                                DebugHelpers.Log("DEFAULT ON OnCollisionStay" + collidingWith.name);
-                                Debug.LogError("DEFAULT ON OnCollisionStay" + collidingWith.name);
+                                //DebugHelpers.Log("DEFAULT ON OnCollisionStay" + collidingWith.name);
+                                //Debug.LogError("DEFAULT ON OnCollisionStay" + collidingWith.name);
                                 break;
                         }
                     }
