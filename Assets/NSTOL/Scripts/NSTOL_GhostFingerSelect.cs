@@ -9,6 +9,8 @@ public class NSTOL_GhostFingerSelect : LocomotionProvider   // extending Locomot
 {
     [SerializeField]
     private GameObject thingManager;
+    
+    public bool ghostFingerSnapsBackToCenter = false;
     [SerializeField]
     private XRGrabInteractable remoteGrabInteractable;
     [SerializeField]
@@ -119,9 +121,38 @@ public class NSTOL_GhostFingerSelect : LocomotionProvider   // extending Locomot
                 {
                     //Debug.Log("thumbstick: " + thumbstick.ToString());
 
-                    // map scalar to the width and height of the remote
-                    thumbPosition = Scale(thumbstick.x, thumbstick.y, thingManager.transform.localScale.x, thingManager.transform.localScale.z);
-                    ghostFinger.transform.localPosition = thumbPosition;
+                    if (ghostFingerSnapsBackToCenter)
+                    {
+                        // map scalar to the width and height of the remote
+                        thumbPosition = Scale(thumbstick.x, thumbstick.y, thingManager.transform.localScale.x, thingManager.transform.localScale.z);
+                        ghostFinger.transform.localPosition = thumbPosition;
+                    }
+                     else
+                    {
+                        // free movement but clamp movement to the width and height of the remote
+                        thumbPosition = new Vector3(thumbstick.x, 0f, thumbstick.y) * Time.deltaTime;
+                        // dont go off the right
+                        if ((ghostFinger.transform.localPosition.x + thumbPosition.x) > thingManager.transform.localScale.x * 2)
+                        {
+                            thumbPosition.x = 0;
+                        }
+                        // dont go off the left
+                        if ((ghostFinger.transform.localPosition.x + thumbPosition.x) < thingManager.transform.localScale.x * -2)
+                        {
+                            thumbPosition.x = 0;
+                        }
+                        // dont go off the top
+                        if ((ghostFinger.transform.localPosition.z + thumbPosition.z) > thingManager.transform.localScale.z)
+                        {
+                            thumbPosition.z = 0;
+                        }
+                        // dont go off the bottom
+                        if ((ghostFinger.transform.localPosition.z + thumbPosition.z) < thingManager.transform.localScale.z * -1)
+                        {
+                            thumbPosition.z = 0;
+                        }
+                        ghostFinger.transform.localPosition += thumbPosition;
+                    }
 
                 }
             }

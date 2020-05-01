@@ -3879,6 +3879,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_System: {fileID: 0}
   thingManager: {fileID: 0}
+  ghostFingerSnapsBackToCenter: 0
   remoteGrabInteractable: {fileID: 0}
   controller: {fileID: 0}
   interactor: {fileID: 0}
