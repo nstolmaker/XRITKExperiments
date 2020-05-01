@@ -4,10 +4,8 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 public class NSTOL_SynchronousVideoTest : MonoBehaviour
 {
-//    [SerializeField]
-//    private string _playbackURL;
-//    [SerializeField]
-//    private string _previousPlaybackURL;
+
+    // TODO: Move all this to the TVRemoteControl script.
     [SerializeField]
     public int _playState = 0;
     [SerializeField]
@@ -24,16 +22,6 @@ public class NSTOL_SynchronousVideoTest : MonoBehaviour
 
     void Update()
     {
-        // If the playback URL has changed (via the inspector), call SetVideoURL on the _synchronousVideo component.
-        /*
-        if (_playbackURL != _previousPlaybackURL)
-        {
-            DebugHelpers.Log("playback URL changed. saving that, and calling setvideoURL");
-            Debug.LogError("Playback URL Chagned");
-            _synchronousVideo.SetVideoURL(_playbackURL);
-            _previousPlaybackURL = _playbackURL;
-        }
-        */
         // If the playstate has changed, call SetPlayState on the _synchronousVideo component.
         if (_playState != _previousPlayState)
         {

@@ -18,7 +18,6 @@ namespace UnityEngine.XR.Interaction.Toolkit {
         [Tooltip("Valid options are left and right. Case sensitive.")]
         public string hand;
         private Transform forwardDirection;
-        float yRotation;
 
         /// <summary>
         /// This is the list of possible valid "InputAxes" that we allow users to read from.
@@ -158,70 +157,7 @@ namespace UnityEngine.XR.Interaction.Toolkit {
                 }
             }
 
-            /* everything below this is just history of stuff I've tried and should basically be ignored or deleted as soon as I move on. Just using it for reference for now.
-
-                /*
-                if (BeginLocomotion())
-                {
-                    var xrRig = system.xrRig;
-
-                    float moveHorizontal = m_CurrentMovementAmount.x;
-                    float moveVertical = m_CurrentMovementAmount.y;
-                    Vector3 position = xrRig.transform.position;
-                    position.x += moveHorizontal * m_Speed; //* Time.deltaTime;
-                    position.z += moveVertical * m_Speed; //* Time.deltaTime;
-                    //transform.position = position;
-
-                    Vector3 cameraDestination = position; // + heightAdjustment;// + move; //  + move;
-
-                    xrRig.MatchRigUp(transform.up);
-                    xrRig.MoveCameraToWorldLocation(cameraDestination);
-
-                    m_CurrentMovementAmount = new Vector2();
-                    EndLocomotion();
-                }
-            }
-                /*
-                var camera = xrRig.transform.Find("Camera Offset").transform.Find("Main Camera");
-                //var oldPos = camera.position; //new Vector3(camera.position.x, camera.position.y, camera.position.z);
-                Vector2 direction = m_CurrentMovementAmount.normalized;
-                Vector2 velocity = direction * m_Speed;
-                Vector2 moveAmount = velocity * Time.deltaTime; // new Vector3(moveAmount.x, 0f, moveAmount.y);
-                //Vector3 move = new Vector3(moveAmount.x, 0f, moveAmount.y);
-                Vector3 move = new Vector3(0.1f, 0f, 0.1f);
-                if (xrRig != null)
-                {
-                    // xrRig.transform.Translate(new Vector3(camera.position.x, 0f, camera.position.z + m_CurrentMovementAmount));
-                    //camera.Translate(oldPos.x, oldPos.y, oldPos.z); // Translate(new Vector3(camera.position.x, 0f, camera.position.z + m_CurrentMovementAmount));
-                    //camera.transform.Translate(move); // Translate(new Vector3(camera.position.x, 0f, camera.position.z + m_CurrentMovementAmount));
-                    //xrRig.RotateAroundCameraUsingRigUp(m_CurrentMovementAmount);
-                }
-
-                // switch (m_CurrentRequest.matchOrientation)
-                // {
-                //     case MatchOrientation.None:
-                         xrRig.MatchRigUp(camera.up);
-                //         break;
-                //     case MatchOrientation.Camera:
-                //I changed this and it'd work if it needed to i think.         
-                // xrRig.MatchRigUpCameraForward(xrRig.transform.up, xrRig.transform.forward);
-                //         break;
-                //case MatchOrientation.Rig:
-                //    xrRig.MatchRigUpRigForward(m_CurrentRequest.destinationUpVector, m_CurrentRequest.destinationForwardVector);
-                //    break;
-                //}
-
-                Vector3 heightAdjustment = xrRig.rig.transform.up * xrRig.cameraInRigSpaceHeight;
-
-                Vector3 cameraDestination = xrRig.rig.transform.position + heightAdjustment;// + move; //  + move;
-
-                        xrRig.MoveCameraToWorldLocation(cameraDestination);
-                    
-                    m_CurrentMovementAmount = new Vector2();
-                    EndLocomotion();
-            }
-            */
-            }
+        }
 
 
         private void StartMove(Vector2 currentState)
@@ -235,63 +171,6 @@ namespace UnityEngine.XR.Interaction.Toolkit {
             m_TimeStarted = Time.time;
             m_CurrentMovementAmount = currentState;
         }        
-                /*
-        void Start()
-        {
-            forwardDirection = avatar.transform.Find("Main Camera").transform;
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-            Vector2 ovrinput = new Vector2(); // = new Vector2(0,0);
-                                              // assume it's an oculus controller
-                                              //float translation = Input.GetAxis("Oculus_CrossPlatform_PrimaryThumbstickHorizontal") * speed;
-            switch (hand)
-            {
-                case "right":
-                    //   ovrinput = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick, OVRInput.Controller.RTouch);
-                    break;
-                case "left":
-                    //   ovrinput = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick, OVRInput.Controller.LTouch);
-                    break;
-            }
-
-
-
-            // Make it move 10 meters per second instead of 10 meters per frame...
-            Vector2 scaledOvrinput = ovrinput * speed * Time.deltaTime;
-            float xAxis = scaledOvrinput.x;
-            float yAxis = scaledOvrinput.y;
-
-            //rotation *= Time.deltaTime;
-            //float rotation = Input.GetAxis("Oculus_CrossPlatform_PrimaryThumbstickVertical") * rotationSpeed;
-            //if (ovrinput != new Vector2() && ovrinput != new Vector2())
-            //{
-            //    Debug.Log("got x and y axis for " + hand + " hand controller: " + new Vector3(0f, xAxis, yAxis).ToString());
-            //}
-
-            // Move translation along the object's z-axis
-            yRotation = Time.deltaTime * forwardDirection.transform.rotation.eulerAngles.y;
-            //avatar.rotation.eulerAngles.y = Quaternion.Euler(0, yRotation, 0);
-            //avatar.SetPositionAndRotation(new Vector3(xAxis, 0f, yAxis), forwardDirection.transform.rotation);
-            //yAxis += Time.deltaTime * 10;
-            //xAxis += Time.deltaTime * 10;
-            avatar.transform.Translate(xAxis, 0f, yAxis);
-
-            ovrinput = new Vector2();
-        }
-
-        void test()
-        {
-            if (Input CanBeginLocomotion)
-        {
-
-            }
-            BeginLocomotion
-            EndLocomotion
-        }
-    }
-    */
+     
     }
     }

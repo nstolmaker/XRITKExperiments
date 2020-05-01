@@ -19,7 +19,6 @@ namespace UnityEngine.XR.Interaction.Toolkit
 
         void Start()
         {
-            //DebugLog = new NSTOLLog(debugTextObject);
             if (!controller)
             {
                 controller = GetComponent<XRController>();
@@ -28,7 +27,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             interactor = controller.GetComponent<XRRayInteractor>();
             //interactor.onHoverEnter.AddListener(handIsHoldingBall);
             interactor.onSelectEnter.AddListener(PickUpPaddle);
-            interactor.onSelectExit.AddListener(DropPaddle);
+            //interactor.onSelectExit.AddListener(DropPaddle);
         }
 
         private void PickUpPaddle(XRBaseInteractable paddle)
@@ -38,29 +37,16 @@ namespace UnityEngine.XR.Interaction.Toolkit
             if (rtPaddle != null)
             {
                 rtPaddle.RequestOwnership();
-                Debug.Log("PickUpPaddle Requesting ownership for object:" + paddle.name);
+                //Debug.Log("PickUpPaddle Requesting ownership for object:" + paddle.name);
             } else
             {
-                Debug.Log("PickUpPaddle Failed to find a RT transform. Not owning obj:" + paddle.name);
+                //Debug.Log("PickUpPaddle Failed to find a RT transform. Not owning obj:" + paddle.name);
             }
         }
 
         private void DropPaddle(XRBaseInteractable paddle)
         {
-            /*
-            // get and save a reference to the RealtimeTransform on the target object
-            rtPaddle = paddle.GetComponent<RealtimeTransform>();
-
-            if (rtPaddle != null)
-            {
-                //rtPaddle.ClearOwnership();
-                DebugHelpers.Log("CLEARING ownership for object:" + paddle.name);
-            }
-            else
-            {
-                DebugHelpers.Log("DropPaddle Failed to find a RT transform. Not owning obj:" + paddle.name);
-            }
-            */
+            // might need this later.
 
         }
 

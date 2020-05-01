@@ -63,9 +63,10 @@ public class NSTOL_GhostFingerSelect : MonoBehaviour
     private void SetHoldingRemote(XRBaseInteractor arg0)
     {
         //DebugHelpers.Log("SetHoldingRemote");
-        //interactor = controller.GetComponent<XRRayInteractor>();
         controller = arg0.GetComponent<XRController>();
         XRBaseInteractable remote = arg0.selectTarget;
+        // TODO: i might need this stuff still. i think i had some inteligent stuff for picking up the balls and paddles that was getting run redundantly while i was playing with this ghost finger remote thing. Or maybe i just copy-pasted this stuff in here from there and never used it. Test and clean up.
+        //interactor = controller.GetComponent<XRRayInteractor>();
         //interactor.onHoverEnter.AddListener(handIsHoldingBall);
         //interactor.onSelectEnter.AddListener(PickUpPaddle);
         //interactor.onSelectExit.AddListener(DropPaddle);
@@ -141,6 +142,18 @@ public class NSTOL_GhostFingerSelect : MonoBehaviour
                             SendHapticPulse();
                             if (trigger > 0.02)
                                 syncVidComponent.Stop();
+                            break;
+                        case "Video1":
+                            //DebugHelpers.Log("Video1 button pushed");
+                            SendHapticPulse();
+                            if (trigger > 0.02)
+                                GetComponent<TVRemoteControl>().videoURL = "https://movietrailers.apple.com/movies/independent/blood-and-money/blood-and-money-trailer-1_i320.m4v";
+                            break;
+                        case "Video2":
+                            //DebugHelpers.Log("Video2 button pushed");
+                            SendHapticPulse();
+                            if (trigger > 0.02)
+                                GetComponent<TVRemoteControl>().videoURL = "https://movietrailers.apple.com/movies/lionsgate/the-quarry/the-quarry-trailer-1_i320.m4v";
                             break;
                         default:
                             //DebugHelpers.Log("DEFAULT ON OnCollisionStay" + collidingWith.name);
