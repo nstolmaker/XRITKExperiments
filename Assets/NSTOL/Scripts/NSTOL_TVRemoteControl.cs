@@ -19,8 +19,6 @@ public class NSTOL_TVRemoteControl : MonoBehaviour
     [SerializeField]
     private VideoPlayer videoPlayer;
 
-    //[SerializeField]
-    //private string _playbackURL;
     [SerializeField]
     private string previousPlaybackURL;
     private NSTOL_SynchronousVideo _synchronousVideo;
@@ -30,6 +28,10 @@ public class NSTOL_TVRemoteControl : MonoBehaviour
     [SerializeField]
     private Renderer m_Renderer;
 
+    [SerializeField]
+    public int playState = 0;
+    [SerializeField]
+    public int _previousPlayState;
     public string videoURL = "https://movietrailers.apple.com/movies/independent/abe/abe-trailer-1_i320.m4v";  
 
     public bool tvReady = false;
@@ -58,6 +60,7 @@ public class NSTOL_TVRemoteControl : MonoBehaviour
         // Get a reference to the NSTOL_SynchronousVideo component.
         _synchronousVideo = GetComponent<NSTOL_SynchronousVideo>();
         previousPlaybackURL = videoURL;
+        _previousPlayState = playState;
 
         CheckDimensions(videoURL);
     }
@@ -85,7 +88,7 @@ public class NSTOL_TVRemoteControl : MonoBehaviour
 
         tmpvideoPlayer.prepareCompleted += (VideoPlayer source) =>
         {
-            //DebugHelpers.Log("dimensions " + source.texture.width + " x " + source.texture.height);
+            NSTOL_DebugHelpers.Log("dimensions " + source.texture.width + " x " + source.texture.height);
             Debug.Log("CheckDimensions complete. dimensions " + source.texture.width + " x " + source.texture.height);
             SetupTV(source.texture.width, source.texture.height);
             Destroy(tempVideo);
@@ -99,7 +102,7 @@ public class NSTOL_TVRemoteControl : MonoBehaviour
     void SetupTV(int remoteVidWidth, int remoteVidHeight)
     {
 
-        //Debug.LogError("SetupTV(" + remoteVidWidth + "c" + remoteVidHeight+")");
+        NSTOL_DebugHelpers.Log("SetupTV(" + remoteVidWidth + "c" + remoteVidHeight+")");
 
         // first MeshRenderer
         if (tv.GetComponent<MeshRenderer>() != null)
@@ -165,6 +168,14 @@ public class NSTOL_TVRemoteControl : MonoBehaviour
                 NSTOL_DebugHelpers.Log("Step 1b TVRemoteControl.cs calling SetVideoURL" + videoURL);
                 _synchronousVideo.SetVideoURL(videoURL);
             }
+
+        }
+        if (playState != _previousPlayState)
+        {
+            Debug.Log("TVRemoteControl Playstate changed to: " + playState);
+            NSTOL_DebugHelpers.Log("TVRemoteControl Playstate changed to: " + playState);
+            _previousPlayState = playState;
+            _synchronousVideo.SetPlayState(playState);
 
         }
     }

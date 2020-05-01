@@ -76,18 +76,19 @@ public class NSTOL_SynchronousVideo : RealtimeComponent
 
     private void PlayStateDidChange(NSTOL_SynchronousVideoModel model, int playState)
     {
-        //DebugHelpers.Log("Playstate event triggered, updating to: " + playState);
+        Debug.Log("PlayStateDidChange event triggered, updating to: " + playState);
         // !!! TODO: convert to ENUMs.
+        tv.GetComponent<NSTOL_TVRemoteControl>().playState = playState;
         switch (playState)
         {
             case 0:
-                tv.GetComponent<VideoPlayer>().Stop();
+                tv.GetComponent<UnityEngine.Video.VideoPlayer>().Stop();
                 break;
             case 1:
-                tv.GetComponent<VideoPlayer>().Play();
+                tv.GetComponent<UnityEngine.Video.VideoPlayer>().Play();
                 break;
             case 2:
-                tv.GetComponent<VideoPlayer>().Pause();
+                tv.GetComponent<UnityEngine.Video.VideoPlayer>().Pause();
                 break;
             case 3:
                 break;
@@ -99,7 +100,7 @@ public class NSTOL_SynchronousVideo : RealtimeComponent
 
     public void SetPlayState(int playState)
     {
-        //DebugHelpers.Log("SetPlayState called, updating model to reflect new playstate of: " + playState);
+        Debug.Log("SetPlayState called, updating model to reflect new playstate of: " + playState);
         _model.playState = playState;
     }
 

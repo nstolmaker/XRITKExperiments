@@ -1703,7 +1703,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 850785880}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.319, y: 0.5, z: -0.398}
+  m_LocalPosition: {x: 0.319, y: 0.5, z: 0.03}
   m_LocalScale: {x: 0.2, y: 5, z: 0.1}
   m_Children: []
   m_Father: {fileID: 1408983921}
@@ -1815,7 +1815,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 922514268}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.291, y: 0.5, z: -0.397}
+  m_LocalPosition: {x: -0.291, y: 0.5, z: 0.03}
   m_LocalScale: {x: 0.2, y: 5, z: 0.1}
   m_Children: []
   m_Father: {fileID: 1408983921}
@@ -3697,6 +3697,7 @@ MonoBehaviour:
   ghostFinger: {fileID: 0}
   clicking: 0
   collidingWith: {fileID: 0}
+  tv: {fileID: 0}
   hapticFingerHoverIntensity: 0.2
 --- !u!114 &1408983928
 MonoBehaviour:
@@ -4371,7 +4372,6 @@ GameObject:
   - component: {fileID: 1693240921}
   - component: {fileID: 1693240919}
   - component: {fileID: 1693240922}
-  - component: {fileID: 1693240918}
   - component: {fileID: 1693240923}
   - component: {fileID: 1693240920}
   m_Layer: 0
@@ -4395,20 +4395,6 @@ Transform:
   m_Father: {fileID: 423964077}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 270}
---- !u!114 &1693240918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1693240916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f93c6beeda1734246ad421babadaf6f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playState: 0
-  _previousPlayState: 0
 --- !u!64 &1693240919
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4476,7 +4462,9 @@ MonoBehaviour:
   m_Normal: {fileID: 0}
   m_Albedo: {fileID: 0}
   m_Renderer: {fileID: 0}
-  videoURL: https://movietrailers.apple.com/movies/samuel_goldwyn/to-the-stars/to-the-stars-trailer-1_i320.m4v
+  playState: 0
+  _previousPlayState: 0
+  videoURL: http://192.168.0.74:3479/Nature.S31E12.The.Private.Life.of.Deer.HDTV.x264-QCF.mp4
   tvReady: 0
 --- !u!114 &1693240923
 MonoBehaviour:

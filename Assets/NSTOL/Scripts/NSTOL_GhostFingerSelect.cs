@@ -140,7 +140,7 @@ public class NSTOL_GhostFingerSelect : LocomotionProvider   // extending Locomot
                             //DebugHelpers.Log("Play button mouseover");
                             SendHapticPulse();
                             if (trigger > 0.02) {
-                                NSTOL_DebugHelpers.Log("Play button pushed");
+                                //NSTOL_DebugHelpers.Log("Play button pushed");
                                 syncVidComponent.Play();
                             }
                             break;
@@ -159,14 +159,19 @@ public class NSTOL_GhostFingerSelect : LocomotionProvider   // extending Locomot
                         case "Video1":
                             //DebugHelpers.Log("Video1 button pushed");
                             SendHapticPulse();
-                            if (trigger > 0.02)
-                                tv.GetComponent<NSTOL_TVRemoteControl>().videoURL = "https://movietrailers.apple.com/movies/independent/blood-and-money/blood-and-money-trailer-1_i320.m4v";
+                            if (trigger > 0.5)
+                            {
+                                tv.GetComponent<NSTOL_TVRemoteControl>().playState = 0; // TODO: Use ENUM
+                                tv.GetComponent<NSTOL_TVRemoteControl>().videoURL = "http://192.168.0.74:3479/adventure.time.s07e27.broke.his.crown.hdtv.x264-w4f.mp4"; // "https://movietrailers.apple.com/movies/independent/blood-and-money/blood-and-money-trailer-1_i320.m4v";
+                            }
                             break;
                         case "Video2":
-                            //DebugHelpers.Log("Video2 button pushed");
                             SendHapticPulse();
-                            if (trigger > 0.02)
+                            if (trigger > 0.5)
+                            {
+                                tv.GetComponent<NSTOL_TVRemoteControl>().playState = 0; // TODO: Use ENUM
                                 tv.GetComponent<NSTOL_TVRemoteControl>().videoURL = "https://movietrailers.apple.com/movies/lionsgate/the-quarry/the-quarry-trailer-1_i320.m4v";
+                            }
                             break;
                         default:
                             //DebugHelpers.Log("DEFAULT ON OnCollisionStay" + collidingWith.name);
