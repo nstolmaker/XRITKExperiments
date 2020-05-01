@@ -19,6 +19,7 @@ public class NSTOL_SynchronousVideo : RealtimeComponent
         }
     }
 
+    // As i understand it, this implements the NSTOL_SynchronousVideoModel partial.
     private NSTOL_SynchronousVideoModel model
     {
         set

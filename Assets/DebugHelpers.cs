@@ -21,6 +21,9 @@ namespace UnityEngine.XR.Interaction.Toolkit
             GameObject.FindGameObjectWithTag("DebugPanel").GetComponent<Text>().text = logStatement + "\n" + prevText;
         }
 
+        /* 
+         * There's a bunch of locomotion stuff here that just makes it so you can move the avatar around with ASDW/Space controls, for testing purposes.
+         * */
         void Update()
         {
 
@@ -56,7 +59,6 @@ namespace UnityEngine.XR.Interaction.Toolkit
 
                 if (BeginLocomotion())
                 {
-                    // the below code works for smooth movement, but doesn't seem to update the avatar position properly.
                     var xrRig = system.xrRig;
                     var camera = xrRig.transform.Find("Camera Offset").transform.Find("Main Camera");
                     Quaternion headRotationFlat = Quaternion.Euler(0, camera.transform.eulerAngles.y, 0);
@@ -66,7 +68,6 @@ namespace UnityEngine.XR.Interaction.Toolkit
                     m_CurrentMovementAmount = new Vector2(0f, 0.5f);
                     EndLocomotion();
                 }
-                //GameObject.Find("RedButton").GetComponentInChildren<PoolTableButtons>().ButtonGoesIn();
             }
             if (Input.GetKeyDown(KeyCode.S))
             {
@@ -74,7 +75,6 @@ namespace UnityEngine.XR.Interaction.Toolkit
                 {
                     Vector2 m_CurrentMovementAmount = new Vector2(0f, -0.5f);
 
-                    // the below code works for smooth movement, but doesn't seem to update the avatar position properly.
                     var xrRig = system.xrRig;
                     var camera = xrRig.transform.Find("Camera Offset").transform.Find("Main Camera");
                     Quaternion headRotationFlat = Quaternion.Euler(0, camera.transform.eulerAngles.y, 0);
@@ -84,7 +84,6 @@ namespace UnityEngine.XR.Interaction.Toolkit
                     m_CurrentMovementAmount = new Vector2(0f, -0.5f);
                     EndLocomotion();
                 }
-                //GameObject.Find("RedButton").GetComponentInChildren<PoolTableButtons>().ButtonGoesIn();
             }
             if (Input.GetKeyDown(KeyCode.A))
             {

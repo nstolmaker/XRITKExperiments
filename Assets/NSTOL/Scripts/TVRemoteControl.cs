@@ -37,7 +37,6 @@ public class TVRemoteControl : MonoBehaviour
 
     void Start()
     {
-        //DebugHelpers.Log("starting tv remote control");
         if (!controller)
         {
             controller = GameObject.Find("RightHand Controller").GetComponent<XRController>();
@@ -63,15 +62,10 @@ public class TVRemoteControl : MonoBehaviour
         CheckDimensions(videoURL);
     }
 
-    // Update is called once per frame
     void Update()
     {
-
         if (tvReady)
             CheckForTVCommands();
-
-
-
     }
 
     /* 
@@ -105,7 +99,7 @@ public class TVRemoteControl : MonoBehaviour
     void SetupTV(int remoteVidWidth, int remoteVidHeight)
     {
 
-        //Debug.LogError("SetupTV(" + remoteVidWidth + ")");
+        //Debug.LogError("SetupTV(" + remoteVidWidth + "c" + remoteVidHeight+")");
 
         // first MeshRenderer
         if (tv.GetComponent<MeshRenderer>() != null)
@@ -118,8 +112,7 @@ public class TVRemoteControl : MonoBehaviour
         Texture2D VideoTextureOTF = new Texture2D(remoteVidWidth, remoteVidHeight, TextureFormat.RGBA32, false);   // set to video with and height
 
         // now make the material
-        Material material = new Material(Shader.Find("Standard"));
-        //This will save the new object to the project if we want it to: AssetDatabase.CreateAsset(material, "Assets/VideoMaterialOTF.mat");
+        Material material = new Material(Shader.Find("Standard")); 
 
         // now assign the texture to the material
         material.SetTexture("VideoTextureOTF", m_Albedo);
@@ -141,7 +134,6 @@ public class TVRemoteControl : MonoBehaviour
         }
         var audioSource = gameObject.AddComponent<AudioSource>();
         */
-        //videoPlayer.clip = videoClip;
         videoPlayer.renderMode = UnityEngine.Video.VideoRenderMode.MaterialOverride;
         videoPlayer.targetMaterialRenderer = m_Renderer;
         videoPlayer.targetMaterialProperty = "_MainTex";
@@ -159,27 +151,6 @@ public class TVRemoteControl : MonoBehaviour
 
     public void CheckForTVCommands()
     {
-        /*
-        // trigger button pressed
-        if (controller.inputDevice.TryGetFeatureValue(CommonUsages.triggerButton, out bool trigger))
-        {
-            if (trigger)
-            {
-                DebugHelpers.Log("Height/Width: " + videoPlayer.height + " / " + videoPlayer.width);
-                DebugHelpers.Log("Primary A Button Capacitive touch: " + trigger);
-
-                Debug.LogError("CheckForTVCommands() trigger pressed. isPlaying = " + tv.GetComponent<UnityEngine.Video.VideoPlayer>().isPlaying);
-                if (tv.GetComponent<UnityEngine.Video.VideoPlayer>().isPlaying == true)
-                {
-                    tv.GetComponent<UnityEngine.Video.VideoPlayer>().Pause();
-                } else
-                {
-                    tv.GetComponent<UnityEngine.Video.VideoPlayer>().Play();
-                }
-            }
-        }
-        */
-
         if (videoURL != previousPlaybackURL)
         {
             // Step 1. the video player URL changed, so update the model. 

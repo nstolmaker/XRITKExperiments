@@ -17,9 +17,9 @@ namespace UnityEngine.XR.Interaction.Toolkit
     public class NSTOLXRTKHandAnimate : MonoBehaviour
     {
 
-        string debugOutput = ""; // debug output, although mostly we're doign this in the NSTOLDebug GameObjects' debug script. I forget what that's called. NSTOLDebug probably.
+        string debugOutput = ""; // debug output, although mostly we're doign this in the NSTOLDebug GameObjects' debug script, DebugHelpers.
 
-        [Tooltip("This should be the left hadn controller of your rig or left hand prefab. We use get input from this game object. Auto-set to this GameObject's XRController, if not set manually. This should work if you have your object hierarchy like mine.")]
+        [Tooltip("This should be the left hand controller of your rig or left hand prefab. We use get input from this game object. Auto-set to this GameObject's XRController, if not set manually. This should work if you have your object hierarchy like mine.")]
         public XRController controller;
 
         private Animator anim;  // the animator that we're triggering changes on. It's auto-populated in Start().
@@ -29,10 +29,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
         // the interactor has this listener support thing used below. With interactor.onSelectEnter and interactor.onSelectExit. We want to use those. When using those, we dont want the animation stuff we've written here to override it. Hence this stateful bool.
         private bool takeAnimationControl = true;
 
-        // Start is called before the first frame update
         void Start()
         {
-            //DebugLog = new NSTOLLog(debugTextObject);
             if (!controller)
             {
                 controller = GetComponent<XRController>();
@@ -41,9 +39,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             // animators... ASSEMBLE!
             anim = GetComponentInChildren<Animator>();
             interactor = controller.GetComponent<XRRayInteractor>();
-            //interactor.onHoverEnter.AddListener(handIsHoldingBall);
             interactor.onSelectEnter.AddListener(handIsHoldingBall);
-            //nteractor.onHoverExit.AddListener(handDropBall);
             interactor.onSelectExit.AddListener(handDropBall);
 
 
@@ -69,11 +65,9 @@ namespace UnityEngine.XR.Interaction.Toolkit
             //DebugHelpers.Log("handDropBall called");
             anim.SetBool("holdBall", false);
             takeAnimationControl = true;
-            //arg0.GetComponent<RealtimeTransform>().ClearOwnership();
+            //arg0.GetComponent<RealtimeTransform>().ClearOwnership();  <-- not necessary because it's done automatically by Normal.
         }
 
-
-        // Update is called once per frame
         void Update()
         {
             if (takeAnimationControl)

@@ -17,14 +17,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         public Scoreboard score;
         public int[] pscore = { 0, 0 };
         private bool justScored = false;
-        
-        // Start is called before the first frame update
-        void Start()
-        {
-            //puck.transform.position = dropPuckPos;
-        }
 
-        // Update is called once per frame
         void Update()
         {
             if (justScored)
@@ -38,7 +31,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         public void ResetPuck()
         {
             var rtt = this.puck.GetComponent<RealtimeTransform>(); 
-            rtt.RequestOwnership(); // TODO: Populate this everywehre we modify the puck, and also when we hit the puck
+            rtt.RequestOwnership();
             this.puck.GetComponentInParent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
             this.puck.GetComponentInParent<Transform>().localPosition = dropPuckPos;    //use localPosition, since thats where the numbers I saved came from. Otherwise you have to add the position of it's parent, which you wouldn't do. Just remember about localSpace!
         }
