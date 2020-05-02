@@ -3,11 +3,13 @@ This project is sort of two-in-one, because it's a demo of some stuff I've been 
 # Features
 - ## Multiplayer
  - Avatars
+ - Smooth movement with joysticks. Also, rotation.
  - Hand and Mouth Movement
  - Grab and Distance Grab
  - Hand movement animations for local player
 - ## TV
- - Synched between users, and can stream video
+ - Synched between users
+ - Can stream video from any URL
  - Cool remote control with play/pause/stop and some built-in videos.
 - ## Air Hockey table
  - Keeps score!
@@ -17,6 +19,7 @@ This project is sort of two-in-one, because it's a demo of some stuff I've been 
 
 # Limitations
 - Video formats are currently limited to what Android supports out-of-the-box. Mp4 works well. MKV doesn't. It doesn't know what to do with AAC audio. 
+- Video stream URLs must be *HTTPS*
 - No synch correction for TV if it goes out of sync
 - Can't fast-forward or jump on the TV right now.
 - The room is currently hard-coded, and thus shared with all users.
